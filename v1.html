@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recupere Sua Paz Mental Hoje</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animações CSS para carrossel de depoimentos */
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .carousel > div {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+    @media (min-width: 768px) {
+      .carousel > div {
+        flex: 0 0 33.333%;
+      }
+    }
+  </style>
+</head>
+<body class="font-poppins bg-gray-100">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-orange-600 to-black text-white py-16 px-4 text-center">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Recupere Sua Paz Mental com as Melhores Soluções
+      </h1>
+      <p class="text-lg md:text-xl mb-6">
+        Mais de 20 mil pessoas já transformaram suas vidas com minhas indicações!
+      </p>
+      <a
+        href="#destaque"
+        class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:bg-yellow-400 transition"
+      >
+        Quero Recuperar Minha Paz Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- Produto em Destaque -->
+  <section id="destaque" class="py-12 px-4 bg-white">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+      <img
+        src="https://via.placeholder.com/600x400?text=Programa+Mentalidade"
+        alt="Programa de Saúde Mental"
+        class="w-full md:w-1/2 rounded-lg shadow-lg"
+        loading="lazy"
+      >
+      <div class="w-full md:w-1/2 text-center md:text-left">
+        <span class="inline-block bg-yellow-500 text-black text-sm px-3 py-1 rounded-full mb-4">
+          <!-- Heroicon: Star -->
+          <svg class="inline w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l2.3 7.1h7.4l-6 4.6 2.3 7.1-6-4.6-6 4.6 2.3-7.1-6-4.6h7.4z"/>
+          </svg>
+          Oferta Exclusiva da Semana
+        </span>
+        <h2 class="text-3xl font-bold mb-4">O Programa que Transformou Minha Saúde Mental</h2>
+        <p class="text-gray-600 mb-4">
+          Em 30 dias, reduzi minha ansiedade em 70% com esse método validado. Ideal para quem busca equilíbrio emocional.
+        </p>
+        <p class="text-red-600 font-semibold mb-4" id="timer">Oferta válida até domingo!</p>
+        <a
+          href="https://hotmart.com/link"
+          target="_blank"
+          class="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-500 transition"
+        >
+          Garantir Meu Acesso Imediato
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produtos por Categoria -->
+  <section class="py-12 px-4 bg-gray-100">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8">Escolha Sua Jornada para o Bem-Estar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+          <img
+            src="https://via.placeholder.com/300x200?text=Meditação"
+            alt="Meditação"
+            class="w-full h-48 object-cover"
+            loading="lazy"
+          >
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Meditação e Mindfulness</h3>
+            <p class="text-gray-600 mb-4">Técnicas para reduzir o estresse e encontrar paz interior.</p>
+            <a
+              href="https://hotmart.com/link1"
+              target="_blank"
+              class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition"
+            >
+              Começar Hoje Mesmo
+            </a>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+          <img
+            src="https://via.placeholder.com/300x200?text=Autoconhecimento"
+            alt="Autoconhecimento"
+            class="w-full h-48 object-cover"
+            loading="lazy"
+          >
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Autoconhecimento</h3>
+            <p class="text-gray-600 mb-4">Ferramentas para entender suas emoções e viver melhor.</p>
+            <a
+              href="https://hotmart.com/link2"
+              target="_blank"
+              class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition"
+            >
+              Começar Hoje Mesmo
+            </a>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+          <img
+            src="https://via.placeholder.com/300x200?text=Cursos+Mentais"
+            alt="Cursos Mentais"
+            class="w-full h-48 object-cover"
+            loading="lazy"
+          >
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Cursos para a Mente</h3>
+            <p class="text-gray-600 mb-4">Programas práticos para fortalecer sua saúde mental.</p>
+            <a
+              href="https://hotmart.com/link3"
+              target="_blank"
+              class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition"
+            >
+              Começar Hoje Mesmo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="py-12 px-4 bg-black text-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8">Histórias de Transformação Mental</h2>
+      <div class="carousel">
+        <div class="p-4">
+          <div class="bg-gray-800 rounded-lg p-6">
+            <p class="text-gray-300 mb-4">"Esse programa me ajudou a superar a ansiedade e encontrar equilíbrio!"</p>
+            <p class="font-semibold">— Ana, 32 anos</p>
+          </div>
+        </div>
+        <div class="p-4">
+          <div class="bg-gray-800 rounded-lg p-6">
+            <p class="text-gray-300 mb-4">"Nunca me senti tão em paz. A meditação mudou minha vida!"</p>
+            <p class="font-semibold">— João, 28 anos</p>
+          </div>
+        </div>
+        <div class="p-4">
+          <div class="bg-gray-800 rounded-lg p-6">
+            <p class="text-gray-300 mb-4">"Descobri meu propósito e hoje vivo com mais clareza."</p>
+            <p class="font-semibold">— Maria, 40 anos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Garantia -->
+  <section class="py-12 px-4 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Garantia de Bem-Estar</h2>
+      <div class="flex justify-center mb-4">
+        <!-- Heroicon: Shield -->
+        <svg class="w-12 h-12 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+        </svg>
+      </div>
+      <p class="text-gray-600 mb-4">Teste sem medo! Todos os produtos têm garantia de 7 dias ou seu dinheiro de volta.</p>
+      <a
+        href="#destaque"
+        class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
+      >
+        Quero Recuperar Minha Paz Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-orange-600 text-white py-6 text-center">
+    <p>© 2025 - Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    // Contador de escassez
+    const timerElement = document.getElementById('timer');
+    const endDate = new Date('2025-06-08T23:59:59').getTime();
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+      if (distance < 0) {
+        timerElement.textContent = 'Oferta encerrada!';
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      timerElement.textContent = `Oferta válida até domingo! (${days}d ${hours}h ${minutes}m)`;
+    }
+    updateTimer();
+    setInterval(updateTimer, 60000);
+  </script>
+</body>
+</html>
