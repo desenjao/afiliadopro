@@ -160,7 +160,7 @@
     .hero img {
       max-width: 100%;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+     
     }
 
     /* Sobre */
@@ -705,7 +705,7 @@
         <a href="#cta-final" class="cta-button">Quero Minha Nova Vida!</a>
       </div>
       <div class="imgcenter">
-      <img src="img/dono.jpg" alt="Elson Vasconcelos motivando" loading="lazy">
+      <img src="img/logocomp.png" alt="Elson Vasconcelos motivando" loading="lazy">
 
       </div>
     </div>
@@ -716,10 +716,10 @@
   <!-- Sobre -->
   <section id="sobre" class="sobre animate">
     <div class="container">
-      <h2>Procrastinação Zero: Sua Transformação Começa Aqui</h2>
+      <h2>Procrastinação Zero : <span style="color: #9C27B0;">Sua Transformação Começa Aqui</span></h2>
       <div class="sobre-content">
         <p>Com o método testado de Elson Vasconcelos, você vai superar a autossabotagem e construir uma vida de disciplina e resultados reais.</p>
-        <img src="fire-icon.svg" alt="" aria-hidden="true" class="icon">
+        <img src="img/logo.png" alt="" aria-hidden="true" class="icon">
       </div>
     </div>
   </section>
@@ -818,25 +818,32 @@
     <div class="container">
       <h2>Está Pronto para Mudar?</h2>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/seuvideodeelson" title="Vídeo motivacional de Elson Vasconcelos" frameborder="0" allowfullscreen></iframe>
+       <iframe 
+  src="https://www.youtube.com/embed/WIS3PzNJEdU" 
+  title="Vídeo motivacional de Elson Vasconcelos"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+  class="w-full max-w-3xl aspect-video mx-auto rounded-xl shadow-lg">
+</iframe>
       </div>
       <form action="https://seulinkdemailchimp.com" method="POST" class="cta-form" novalidate>
         <div class="form-group">
-          <label for="nome">Seu nome</label>
+          <label for="nome" style="color: #FF5722;">Seu nome</label>
           <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-          <span class="form-error">Por favor, insira seu nome.</span>
+          <span class="form-error" style="color: #FF5722;">Por favor, insira seu nome.</span>
         </div>
         <div class="form-group">
-          <label for="email">Seu melhor e-mail</label>
+          <label for="email "style="color: #FF5722;">Seu melhor e-mail</label>
           <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-          <span class="form-error">Por favor, insira um e-mail válido.</span>
+          <span class="form-error" Por favor, insira um e-mail válido.</span>
         </div>
         <div class="form-group">
-          <label for="whatsapp">Seu WhatsApp (opcional)</label>
+          <label for="whatsapp" style="color: #FF5722;">Seu WhatsApp (opcional)</label>
           <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp">
         </div>
         <div class="form-group honeypot">
-          <label for="honeypot">Deixe em branco</label>
+          <label for="honeypot" style="color: #FF5722;">Deixe em branco</label>
           <input type="text" id="honeypot" name="honeypot">
         </div>
         <button type="submit" class="cta-button">Quero Minha Nova Vida!</button>
