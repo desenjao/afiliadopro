@@ -3,255 +3,972 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recupere Sua Paz Mental Hoje</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Junte-se ao movimento Procrastinação Zero e transforme sua vida agora com Elson Vasconcelos!">
+  <title>Procrastinação Zero - Mude Sua Vida Agora</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    /* Animações CSS para carrossel de depoimentos */
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
-    .carousel::-webkit-scrollbar {
+
+    body {
+      line-height: 1.6;
+      color: #212121;
+      background: #f9fafb;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 1.5rem 0;
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-list a {
+      color: #212121;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      color: #FF5722;
+    }
+
+    .cta-button {
+      background: #FF5722;
+      color: #fff;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #212121;
+      position: relative;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: #212121;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger::before {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger::after {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #FF5722 0%, #9C27B0 100%);
+      color: #fff;
+      padding: 6rem 0;
+      min-height: 80vh;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Sobre */
+    .sobre {
+      padding: 6rem 0;
+      background: #f3f4f6;
+    }
+
+    .sobre .container {
+      padding: 0 5rem;
+    }
+
+    .sobre h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #FF5722;
+    }
+
+    .sobre-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .sobre p {
+      font-size: 1.125rem;
+      color: #424242;
+      flex: 1;
+    }
+
+    .sobre .icon {
+      width: 120px;
+    }
+
+    /* Benefícios */
+    .beneficios {
+      padding: 6rem 0;
+      background: #fff;
+    }
+
+    .beneficios .container {
+      padding: 0 5rem;
+    }
+
+    .beneficios h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #FF5722;
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .beneficio-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .beneficio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .beneficio-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #FF5722;
+    }
+
+    .beneficio-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .beneficio-card p {
+      font-size: 1.125rem;
+      color: #666;
+    }
+
+    /* Como Começar */
+    .como {
+      padding: 6rem 0;
+      background: #f3f4f6;
+    }
+
+    .como .container {
+      padding: 0 5rem;
+    }
+
+    .como h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #FF5722;
+    }
+
+    .como-list {
+      list-style: none;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .como-list li {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #424242;
+    }
+
+    .step-number {
+      font-size: 2rem;
+      color: #FF5722;
+      font-weight: 700;
+    }
+
+    /* Depoimentos */
+    .depoimentos {
+      padding: 6rem 0;
+      background: #fff;
+    }
+
+    .depoimentos .container {
+      padding: 0 5rem;
+    }
+
+    .depoimentos h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #FF5722;
+    }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .depoimento-card {
+      background: #f3f4f6;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .depoimento-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .depoimento-card p {
+      font-size: 1.125rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #424242;
+    }
+
+    .depoimento-card cite {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #FF5722;
+    }
+
+    /* Urgência */
+    .urgencia {
+      padding: 6rem 0;
+      background: #FF5722;
+      color: #fff;
+      text-align: center;
+    }
+
+    .urgencia .container {
+      padding: 0 5rem;
+    }
+
+    .urgencia h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .urgencia p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .countdown {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      padding: 6rem 0;
+      background: #fff;
+      text-align: center;
+    }
+    .cta-button{
+      background-color:white;
+      color: #FF5722;
+      border: #FF5722 3px outset;
+      border-radius: 30px;
+      border-color: #FF5722;
+    }
+
+    .cta-final .container {
+      padding: 0 5rem;
+    }
+
+    .cta-final h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #FF5722;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-final .video-container {
+      max-width: 896px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      aspect-ratio: 16 / 9;
+    }
+
+    .cta-final iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .cta-form {
+      max-width: 512px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #424242;
+    }
+
+    .form-group input {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #FF5722;
+      box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.2);
+    }
+
+    .form-error {
+      color: #FF5722;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
       display: none;
     }
-    .carousel > div {
-      flex: 0 0 100%;
-      scroll-snap-align: start;
+
+    .form-group.invalid .form-error {
+      display: block;
     }
-    @media (min-width: 768px) {
-      .carousel > div {
-        flex: 0 0 33.333%;
+
+    .honeypot {
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.5rem 0;
+      background: #212121;
+      color: #bbb;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    footer .container {
+      padding: 0 5rem;
+    }
+
+    footer p {
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 1.25rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #FF5722;
+    }
+
+    /* Pop-up de Saída */
+    .exit-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .exit-popup-content {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 512px;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .exit-popup-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #FF5722;
+      margin-bottom: 1rem;
+    }
+
+    .exit-popup-content p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #424242;
+    }
+
+    .exit-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #424242;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .exit-popup-close:hover {
+      color: #FF5722;
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .animate.visible {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Separadores */
+    .section-divider {
+      border-top: 1px solid #e5e7eb;
+      margin: 3rem 0;
+    }
+
+    /* Responsividade */
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .imgcenter{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .header .container {
+        gap: 1rem;
+      }
+
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-list.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero img {
+        max-width: 80%;
+        margin-top: 1.5rem;
+      }
+
+      .sobre .container,
+      .beneficios .container,
+      .como .container,
+      .depoimentos .container,
+      .urgencia .container,
+      .cta-final .container {
+        padding: 0 1.5rem;
+      }
+
+      .sobre-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sobre p {
+        max-width: 100%;
+      }
+
+      .beneficios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-final iframe {
+        height: 200px;
+      }
+
+      .cta-form {
+        padding: 1.5rem;
       }
     }
   </style>
 </head>
-<body class="font-poppins bg-gray-100">
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-orange-600 to-black text-white py-16 px-4 text-center">
-    <div class="max-w-5xl mx-auto">
-      <img
-        src="img/5.png"
-        alt="Logo Elson de Vasconcelos"
-        class="mx-auto mb-6 w-full max-w-[200px] md:max-w-[300px] h-auto"
-        loading="lazy" 
-        style="border-radius: 50%;"
-      >
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        Recupere Sua Paz Mental com as Melhores Soluções
-      </h1>
-      <p class="text-lg md:text-xl mb-6">
-        Várias pessoas já transformaram suas vidas por conta dos nossos cursos!
-      </p>
-      <a
-        href="#destaque"
-        class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:bg-yellow-400 transition"
-      >
-        Quero Recuperar Minha Paz Agora
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="/" aria-label="Página inicial do Procrastinação Zero">
+        <img src="img/logo.png" alt="Logo Procrastinação Zero" class="logo">
       </a>
+      <nav class="nav">
+        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#sobre" aria-label="Sobre o movimento">Sobre</a></li>
+          <li><a href="#beneficios" aria-label="Benefícios do movimento">Benefícios</a></li>
+          <li><a href="#como" aria-label="Como começar">Como Começar</a></li>
+          <li><a href="#cta-final" aria-label="Entrar no desafio">Entrar no Desafio</a></li>
+        </ul>
+      </nav>
+      <a href="#cta-final" class="cta-button">Quero Mudar de Vida!</a>
     </div>
-  </section>
+  </header>
 
-  <!-- Produto em Destaque -->
-  <section id="destaque" class="py-12 px-4 bg-white">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
-      <img
-        src="img/7749324.jpg"
-        alt="Programa de Saúde Mental"
-        class="w-full md:w-1/2 rounded-lg shadow-lg"
-        loading="lazy"
-      >
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <span class="inline-block bg-yellow-500 text-black text-sm px-3 py-1 rounded-full mb-4">
-          <!-- Heroicon: Star -->
-          <svg class="inline w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2l2.3 7.1h7.4l-6 4.6 2.3 7.1-6-4.6-6 4.6 2.3-7.1-6-4.6h7.4z"/>
-          </svg>
-          Oferta Exclusiva da Semana
-        </span>
-        <h2 class="text-3xl font-bold mb-4">O Programa que Transformou Minha Saúde Mental</h2>
-        <p class="text-gray-600 mb-4">
-          Em 30 dias, reduzi minha ansiedade em 70% com esse método validado. Ideal para quem busca equilíbrio emocional.
-        </p>
-        <p class="text-red-600 font-semibold mb-4" id="timer">Oferta válida até domingo!</p>
-        <a
-          href="https://hotmart.com/link"
-          target="_blank"
-          class="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-500 transition"
-        >
-          Garantir Meu Acesso Imediato
-        </a>
+  <!-- Hero -->
+  <section id="hero" class="hero animate">
+    <div class="container">
+      <div>
+        <h1>Transforme Sua Vida Hoje</h1>
+        <p>Se você deixar pra depois de novo… já sabe o final, né? Junte-se ao movimento Procrastinação Zero com Elson Vasconcelos e mude agora.</p>
+        <a href="#cta-final" class="cta-button">Quero Minha Nova Vida!</a>
+      </div>
+      <div class="imgcenter">
+      <img src="img/dono.jpg" alt="Elson Vasconcelos motivando" loading="lazy">
+
       </div>
     </div>
   </section>
 
-  <!-- Produtos por Categoria -->
-  <section class="py-12 px-4 bg-gray-100">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-8">Escolha Sua Jornada para o Bem-Estar</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-          <img
-            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1399&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Meditação"
-            class="w-full h-48 object-cover"
-            loading="lazy"
-          >
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Meditação e Mindfulness</h3>
-            <p class="text-gray-600 mb-4">Técnicas para reduzir o estresse e encontrar paz interior.</p>
-            <a
-              href="https://hotmart.com/link1"
-              target="_blank"
-              class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition"
-            >
-              Começar Hoje Mesmo
-            </a>
-          </div>
+  <div class="section-divider"></div>
+
+  <!-- Sobre -->
+  <section id="sobre" class="sobre animate">
+    <div class="container">
+      <h2>Procrastinação Zero: Sua Transformação Começa Aqui</h2>
+      <div class="sobre-content">
+        <p>Com o método testado de Elson Vasconcelos, você vai superar a autossabotagem e construir uma vida de disciplina e resultados reais.</p>
+        <img src="fire-icon.svg" alt="" aria-hidden="true" class="icon">
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Benefícios -->
+  <section id="beneficios" class="beneficios animate">
+    <div class="container">
+      <h2>Por que Você Precisa Entrar?</h2>
+      <div class="beneficios-grid">
+        <div class="beneficio-card">
+          <span class="icon" aria-hidden="true">📍</span>
+          <h3>Clareza Total</h3>
+          <p>Defina seus objetivos com precisão e foco.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661963810374-85a874671aa8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Autoconhecimento"
-            class="w-full h-48 object-cover"
-            loading="lazy"
-          >
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Autoconhecimento</h3>
-            <p class="text-gray-600 mb-4">Ferramentas para entender suas emoções e viver melhor.</p>
-            <a
-              href="https://hotmart.com/link2"
-              target="_blank"
-              class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition"
-            >
-              Começar Hoje Mesmo
-            </a>
-          </div>
+        <div class="beneficio-card">
+          <span class="icon" aria-hidden="true">🔥</span>
+          <h3>Rotina Poderosa</h3>
+          <p>Hábitos que elevam sua autoestima diariamente.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1695827439559-6ec8037093e6?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Cursos Mentais"
-            class="w-full h-48 object-cover"
-            loading="lazy"
-          >
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Cursos para a Mente</h3>
-            <p class="text-gray-600 mb-4">Programas práticos para fortalecer sua saúde mental.</p>
-            <a
-              href="https://hotmart.com/link3"
-              target="_blank"
-              class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition"
-            >
-              Começar Hoje Mesmo
-            </a>
-          </div>
+        <div class="beneficio-card">
+          <span class="icon" aria-hidden="true">🚀</span>
+          <h3>Disciplina Prática</h3>
+          <p>Técnicas simples para manter o controle.</p>
+        </div>
+        <div class="beneficio-card">
+          <span class="icon" aria-hidden="true">💥</span>
+          <h3>Ação com Propósito</h3>
+          <p>Transforme intenções em conquistas reais.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Como Começar -->
+  <section id="como" class="como animate">
+    <div class="container">
+      <h2>Como Dar o Primeiro Passo?</h2>
+      <ol class="como-list">
+        <li><span class="step-number">1</span> Preencha o formulário abaixo</li>
+        <li><span class="step-number">2</span> Receba desafios semanais personalizados</li>
+        <li><span class="step-number">3</span> Comece sua jornada de mudança</li>
+      </ol>
+      <div style="display: flex;align-items: center; justify-content: center;">
+      <a href="#cta-final" class="cta-button" >Quero Começar Agora!</a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
 
   <!-- Depoimentos -->
-  <section class="py-12 px-4 bg-black text-white">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-8">Histórias de Transformação Mental</h2>
-      <div class="carousel">
-        <div class="p-4">
-          <div class="bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-6 flex items-start">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=128&auto=format&fit=crop"
-              alt="Foto de Ana"
-              class="w-12 h-12 rounded-full mr-4 object-cover"
-              loading="lazy"
-            >
-            <div>
-              <p class="text-gray-200 mb-4">"Esse programa me ajudou a superar a ansiedade e encontrar equilíbrio!"</p>
-              <p class="text-white font-semibold">Ana, 32 anos</p>
-              <p class="text-gray-400 text-sm">Advogada</p>
-            </div>
-          </div>
+  <section id="depoimentos" class="depoimentos animate">
+    <div class="container">
+      <h2>O Que Nossos Membros Dizem</h2>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card">
+          <img src="img/user1.jpg" alt="Foto de Fernanda" loading="lazy">
+          <p>“Em 7 dias minha rotina virou do avesso — pro lado certo. Nunca mais voltei atrás.”</p>
+          <cite>Fernando, ex-procrastinador</cite>
         </div>
-        <div class="p-4">
-          <div class="bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-6 flex items-start">
-            <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=128&auto=format&fit=crop"
-              alt="Foto de Pedro"
-              class="w-12 h-12 rounded-full mr-4 object-cover"
-              loading="lazy"
-            >
-            <div>
-              <p class="text-gray-200 mb-4">"Nunca me senti tão em paz. A meditação mudou minha vida! "</p>
-              <p class="text-white font-semibold">Pedro, 28 anos</p>
-              <p class="text-gray-400 text-sm">Engenheiro</p>
-            </div>
-          </div>
+        <div class="depoimento-card">
+          <img src="img/user2.jpg" alt="Foto de Carlos" loading="lazy">
+          <p>“O método de Elson me deu clareza para alcançar o que sempre adiei.”</p>
+          <cite>Carlos, empreendedor</cite>
         </div>
-        <div class="p-4">
-          <div class="bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg p-6 flex items-start">
-            <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=128&auto=format&fit=crop"
-              alt="Foto de Maria"
-              class="w-12 h-12 rounded-full mr-4 object-cover"
-              loading="lazy"
-            >
-            <div>
-              <p class="text-gray-200 mb-4">"Descobri meu propósito e hoje vivo com mais clareza. Mudou a formo penso"</p>
-              <p class="text-white font-semibold">Maria, 40 anos</p>
-              <p class="text-gray-400 text-sm">Profissional de Saúde</p>
-            </div>
-          </div>
+        <div class="depoimento-card">
+          <img src="img/user3.jpg" alt="Foto de Ana" loading="lazy">
+          <p>“Resultados que nunca imaginei, tudo em semanas!”</p>
+          <cite>Ana, estudante</cite>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Garantia -->
-  <section class="py-12 px-4 bg-white">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Garantia de Bem-Estar</h2>
-      <div class="flex justify-center mb-4">
-        <!-- Heroicon: Shield -->
-        <svg class="w-12 h-12 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-        </svg>
+  <div class="section-divider"></div>
+
+  <!-- Urgência -->
+  <section id="urgencia" class="urgencia animate">
+    <div class="container">
+      <h2>Vagas Limitadas Ação Imediata!</h2>
+      <p>Inscreva-se antes que as vagas para o próximo ciclo acabem.</p>
+      <div class="countdown" id="countdown">00:00:00</div>
+      <a href="#cta-final" class="cta-button">Quero Minha Vaga!</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CTA Final -->
+  <section id="cta-final" class="cta-final animate">
+    <div class="container">
+      <h2>Está Pronto para Mudar?</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/seuvideodeelson" title="Vídeo motivacional de Elson Vasconcelos" frameborder="0" allowfullscreen></iframe>
       </div>
-      <p class="text-gray-600 mb-4">Teste sem medo! Todos os produtos são de altissima qualida. Venha já mudar de vida.</p>
-      <a
-        href="#destaque"
-        class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
-      >
-        Quero Recuperar Minha Paz Agora
-      </a>
+      <form action="https://seulinkdemailchimp.com" method="POST" class="cta-form" novalidate>
+        <div class="form-group">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+          <span class="form-error">Por favor, insira seu nome.</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Seu melhor e-mail</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+          <span class="form-error">Por favor, insira um e-mail válido.</span>
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">Seu WhatsApp (opcional)</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp">
+        </div>
+        <div class="form-group honeypot">
+          <label for="honeypot">Deixe em branco</label>
+          <input type="text" id="honeypot" name="honeypot">
+        </div>
+        <button type="submit" class="cta-button">Quero Minha Nova Vida!</button>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-orange-600 text-white py-6 text-center">
-    <p>© 2025 - Todos os direitos reservados</p>
+  <footer>
+    <div class="container">
+      <p>© 2025 vasconcelosdgt. Transforme-se agora.</p>
+      <div class="social-links">
+        <a href="https://instagram.com/vasconcelosdgt" aria-label="Instagram do Procrastinação Zero"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/vasconcelosdgt" aria-label="YouTube do Procrastinação Zero"><i class="fab fa-youtube"></i></a>
+        <a href="https://t.me/vasconcelosdgt" aria-label="Telegram do Procrastinação Zero"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
   </footer>
 
+  <!-- Pop-up de Saída -->
+  <div class="exit-popup" id="exitPopup">
+    <div class="exit-popup-content">
+      <button class="exit-popup-close" aria-label="Fechar pop-up">✖</button>
+      <h2>Não Desista Agora!</h2>
+      <p>Você está a um passo de transformar sua vida. Inscreva-se e receba um guia gratuito!</p>
+      <a href="#cta-final" class="cta-button">Quero o Guia Grátis!</a>
+    </div>
+  </div>
+
   <script>
-    // Contador de escassez
-    const timerElement = document.getElementById('timer');
-    const endDate = new Date('2025-06-08T23:59:59').getTime();
-    function updateTimer() {
-      const now = new Date().getTime();
-      const distance = endDate - now;
-      if (distance < 0) {
-        timerElement.textContent = 'Oferta encerrada!';
+    // Menu hambúrguer
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      navList.classList.toggle('active');
+    });
+
+    // Validação de formulário
+    const form = document.querySelector('.cta-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = form.querySelector('#nome');
+      const email = form.querySelector('#email');
+      const honeypot = form.querySelector('#honeypot').value;
+      let isValid = true;
+
+      if (honeypot) {
         return;
       }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      timerElement.textContent = `Oferta válida até domingo! (${days}d ${hours}h ${minutes}m)`;
+
+      if (!nome.value.trim()) {
+        nome.parentElement.classList.add('invalid');
+        isValid = false;
+      } else {
+        nome.parentElement.classList.remove('invalid');
+      }
+
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        email.parentElement.classList.add('invalid');
+        isValid = false;
+      } else {
+        email.parentElement.classList.remove('invalid');
+      }
+
+      if (isValid) {
+        form.submit();
+      }
+    });
+
+    form.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', () => {
+        if (input.value.trim()) {
+          input.parentElement.classList.remove('invalid');
+        }
+      });
+    });
+
+   // Pega o elemento onde vai exibir o contador
+  const countdownElement = document.getElementById('countdown');
+
+  // Define o prazo final (24 horas a partir do carregamento da página)
+  const endTime = new Date(new Date().getTime() + 1 * 60 * 60 * 1000);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = endTime - now;
+
+    if (diff <= 0) {
+      countdownElement.textContent = "00:00:00";
+      clearInterval(interval);
+      return;
     }
-    updateTimer();
-    setInterval(updateTimer, 60000);
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes
+      .toString()
+      .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  // Atualiza a cada segundo
+  const interval = setInterval(updateCountdown, 1000);
+  updateCountdown(); // atualiza na hora também, sem esperar o primeiro segundo
+
+    // Pop-up de saída
+    const exitPopup = document.getElementById('exitPopup');
+    const closePopup = document.querySelector('.exit-popup-close');
+    let popupShown = false;
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && !popupShown) {
+        exitPopup.style.display = 'flex';
+        popupShown = true;
+      }
+    });
+    closePopup.addEventListener('click', () => {
+      exitPopup.style.display = 'none';
+    });
+
+    // Animação ao carregar seções
+    const animateSections = document.querySelectorAll('.animate');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    animateSections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
