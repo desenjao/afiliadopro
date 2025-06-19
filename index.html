@@ -672,6 +672,46 @@
         padding: 1.5rem;
       }
     }
+    @keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 115, 0, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 115, 0, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 115, 0, 0);
+  }
+}
+
+.pulse-btn {
+  background-color: #ff7300;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: transform 0.2s ease;
+}
+.pulse-btn1 {
+  background-color: #ffffff;
+  color:#FF5722;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: transform 0.2s ease;
+}
+
   </style>
 </head>
 <body>
@@ -692,27 +732,10 @@
           <li><a href="#cta-final" aria-label="Entrar no desafio">Entrar no Desafio</a></li>
         </ul>
       </nav>
-      <a href="#cta-final" class="cta-button">Quero Mudar de Vida!</a>
+      <a href="#cta-final" class="cta-button pulse-btn" >Começar Grátis</a>
     </div>
   </header>
-
-  <!-- Hero -->
-  <section id="hero" class="hero animate">
-    <div class="container">
-      <div>
-        <h1>Não é Falta de Tempo. É Falta de Direção.</h1>
-        <p>Descubra o passo a passo para eliminar a procrastinação e construir uma rotina poderosa. Começando com apenas 10 minutos por dia.</p>
-        <a href="#cta-final" class="cta-button">Quero Minha Nova Vida!</a>
-      </div>
-      <div class="imgcenter">
-      <img src="img/logocomp1.png" alt="Elson Vasconcelos motivando" loading="lazy">
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
+  
   <!-- Sobre -->
   <section id="sobre" class="sobre animate">
     <div class="container">
@@ -723,6 +746,24 @@
       </div>
     </div>
   </section>
+
+  <!-- Hero -->
+  <section id="hero" class="hero animate">
+    <div class="container">
+      <div>
+        <h1>Não é Falta de Tempo. É Falta de Direção.</h1>
+        <p>Descubra o passo a passo para eliminar a procrastinação e construir uma rotina poderosa. Começando com apenas 10 minutos por dia.</p>
+        <a href="#cta-final" class="cta-button pulse-btn1">Quero Descobrir</a>
+      </div>
+      <div class="imgcenter">
+      <img src="img/logocomp1.png" alt="Elson Vasconcelos motivando" loading="lazy">
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
 
   <div class="section-divider"></div>
 
@@ -763,11 +804,11 @@
       <h2>Como Dar o Primeiro Passo?</h2>
       <ol class="como-list">
         <li><span class="step-number">1</span> Preencha o formulário abaixo</li>
-        <li><span class="step-number">2</span> Receba desafios Procrastinação Zero</li>
+        <li><span class="step-number">2</span> Receba o desafio Procrastinação Zero</li>
         <li><span class="step-number">3</span> Dê o primeiro passo para se tornar melhor que ontem</li>
       </ol>
       <div style="display: flex;align-items: center; justify-content: center;">
-      <a href="#cta-final" class="cta-button" >Quero Começar Agora!</a>
+      <a href="#cta-final" class="cta-button pulse-btn" >Quero Começar Agora!</a>
 
       </div>
     </div>
@@ -808,7 +849,7 @@
       <p>As vagas são limitadas e o próximo ciclo já está começando.
 Se você deixar pra depois, já sabe o final.</p>
       <div class="countdown" id="countdown">00:00:00</div>
-      <a href="#cta-final" class="cta-button">Quero Minha Vaga!</a>
+      <a href="#cta-final" class="cta-button pulse-btn1">Quero Minha Vaga!</a>
     </div>
   </section>
 
@@ -847,7 +888,7 @@ Se você deixar pra depois, já sabe o final.</p>
           <label for="honeypot" style="color: #FF5722;">Deixe em branco</label>
           <input type="text" id="honeypot" name="honeypot">
         </div>
-        <button type="submit" class="cta-button">Quero Minha Nova Vida!</button>
+        <button type="submit" class="cta-button  pulse-btn">enviar</button>
       </form>
     </div>
   </section>
@@ -857,11 +898,7 @@ Se você deixar pra depois, já sabe o final.</p>
     <div class="container">
       <p>© 2025 vasconcelosdgt. Transforme-se agora.</p>
       <p>eitadevis</p>
-      <div class="social-links">
-        <a href="https://instagram.com/vasconcelosdgt" aria-label="Instagram do Procrastinação Zero"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com/vasconcelosdgt" aria-label="YouTube do Procrastinação Zero"><i class="fab fa-youtube"></i></a>
-        <a href="https://t.me/vasconcelosdgt" aria-label="Telegram do Procrastinação Zero"><i class="fab fa-telegram"></i></a>
-      </div>
+      
     </div>
   </footer>
 
