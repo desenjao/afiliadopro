@@ -13,511 +13,37 @@
   <meta property="og:type" content="website" />
   <title>Guia Gratuito - Clareza e Leveza em 21 Dias</title>
   <link rel="icon" type="image/png" href="https://your-domain.com/favicon.png" />
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1522075782449-4b8ed3e104f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" type="image/webp" />
+  <link rel="preload" as="image" href="img/cap.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" defer></script>
+    <link rel="stylesheet" href="style.css">
   <style>
-    /* Reset and Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #1e1e2f;
-      color: #ffffff;
-      line-height: 1.6;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-    }
-
-    /* Animations */
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    @keyframes clickFeedback {
-      0% { transform: scale(1); }
-      50% { transform: scale(0.95); }
-      100% { transform: scale(1); }
-    }
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    /* Skeleton Loading Styles */
-    .skeleton {
-      background: #ccc;
-      border-radius: 4px;
-      animation: shimmer 1.5s infinite;
-      background: linear-gradient(90deg, #2a2a40 25%, #3a3a50 50%, #2a2a40 75%);
-      background-size: 200% 100%;
-    }
-    .skeleton-icon {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 1rem;
-    }
-    .skeleton-text {
-      height: 16px;
-      margin: 0.5rem 0;
-    }
-    .skeleton-text.short {
-      width: 60%;
-    }
-    .skeleton-card {
-      opacity: 0.7;
-    }
-    .loaded .skeleton {
-      display: none;
-    }
-    .loaded .content {
-      display: block;
-    }
-    .content {
-      display: none;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(135deg, rgba(30, 30, 47, 0.85), rgba(30, 30, 47, 0.85)), url('img/capa.jpg');
-      background-size: cover;
-      background-position: center top;
-      padding: 2rem 1rem;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      isolation: isolate;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #ffa733;
-      margin-bottom: 1rem;
-    }
-    header h1 span {
-      font-weight: 600;
-      font-size: 1.8rem;
-      color: #e0e0e0;
-    }
-    header p {
-      font-size: 1rem;
-      color: #b3b3b3;
-      max-width: 100%;
-      margin: 0 auto 1.5rem;
-      padding: 0 0.5rem;
-    }
-    .cta-button {
-      background-color: #ffa733;
-      color: #1e1e2f;
-      padding: 0.9rem 2rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 4px 10px rgba(255, 167, 51, 0.3);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-    }
-    .cta-button:hover {
-      background-color: #ff9100;
-      box-shadow: 0 6px 15px rgba(255, 167, 51, 0.4);
-    }
-    .cta-button:active {
-      animation: clickFeedback 0.2s ease;
-    }
-    .cta-button iconify-icon {
-      font-size: 20px;
-      color: #1e1e2f;
-    }
-    .cta-button span {
-      font-size: 0.85rem;
-      color: #4a3a73;
-      font-weight: 400;
-    }
-
-    /* Benefits Section */
-    .benefits-section {
-      padding: 2rem 1rem;
-      max-width: 100%;
-      text-align: center;
-    }
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #ffa733;
-      margin-bottom: 1.5rem;
-    }
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin: 0 auto;
-    }
-    .benefit-card {
-      background: #2a2a40;
-      padding: 1.5rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    }
-    .benefit-card iconify-icon {
-      font-size: 50px;
-      color: #ffa733;
-      margin-bottom: 1rem;
-    }
-    .benefit-card p {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #ffffff;
-    }
-    .benefit-card p span {
-      font-weight: 400;
-      color: #b3b3b3;
-      display: block;
-      margin-top: 0.75rem;
-    }
-
-    /* Form Section */
-    .form-section {
-      padding: 1.5rem;
-      max-width: 100%;
-      margin: 2rem auto;
-      background: #2a2a40;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .form-group {
-      position: relative;
-      width: 100%;
-    }
-    input {
-      padding: 1rem 1rem 1rem 3rem;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      border: 1px solid #4a3a73;
-      background-color: #2a2a40;
-      color: #ffffff;
-      width: 100%;
-      transition: all 0.3s ease;
-    }
-    input:focus {
-      outline: 2px solid #ffa733;
-      border-color: #ffa733;
-    }
-    input:invalid:not(:placeholder-shown) {
-      border-color: #ff4d4d;
-    }
-    .form-group iconify-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 20px;
-      color: #b3b3b3;
-    }
-    button[type="submit"] {
-      background-color: #ffa733;
-      color: #1e1e2f;
-      padding: 0.9rem 2rem;
-      font-weight: 700;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 10px rgba(255, 167, 51, 0.3);
-      transition: all 0.3s ease;
-      width: 100%;
-      max-width: 280px;
-      margin: 0 auto;
-    }
-    button[type="submit"]:hover {
-      background-color: #ff9100;
-      box-shadow: 0 6px 15px rgba(255, 167, 51, 0.4);
-    }
-    button[type="submit"]:active {
-      animation: clickFeedback 0.2s ease;
-    }
-    button[type="submit"] iconify-icon {
-      font-size: 20px;
-      color: #1e1e2f;
-    }
-    .form-note {
-      font-size: 0.85rem;
-      color: #b3b3b3;
-      text-align: center;
-      margin-top: 0.75rem;
-    }
-    .form-note iconify-icon {
-      font-size: 16px;
-      color: #ffa733;
-      vertical-align: middle;
-    }
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      animation: pulse 2s infinite;
-    }
-    .trust-badge iconify-icon {
-      font-size: 24px;
-      color: #ffa733;
-    }
-    .error-message {
-      display: none;
-      font-size: 0.9rem;
-      color: #ff4d4d;
-      text-align: center;
-      margin-top: 0.5rem;
-      background-color: #2a2a40;
-      padding: 0.75rem;
-      border-radius: 8px;
-    }
-    .error-message.show {
-      display: block;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 2rem 1rem;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    .testimonials h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #ffa733;
-      margin-bottom: 1.5rem;
-    }
-    .testimonial-carousel {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-    }
-    .testimonial-card {
-      flex: 0 0 250px;
-      background: #2a2a40;
-      padding: 1.5rem;
-      border-radius: 12px;
-      scroll-snap-align: start;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .testimonial-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    }
-    .testimonial-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 9999px;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      border: 2px solid #ffa733;
-      aspect-ratio: 1/1;
-    }
-    .testimonial-card .skeleton-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 9999px;
-      margin-bottom: 1rem;
-    }
-    .testimonial-card p {
-      font-size: 0.95rem;
-      color: #ffffff;
-    }
-    .testimonial-card p strong {
-      font-weight: 700;
-    }
-    .testimonial-card span {
-      font-weight: 600;
-      color: #b3b3b3;
-      display: block;
-      margin-top: 0.75rem;
-    }
-
-    /* Final CTA Section */
-    .final-cta {
-      background: linear-gradient(135deg, rgba(30, 30, 47, 0.85), rgba(30, 30, 47, 0.85)), url('img/saude.jpg');
-      background-size: cover;
-      background-position: center top;
-      padding: 2rem 1rem;
-      text-align: center;
-      width: 100%;
-      position: relative;
-      isolation: isolate;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
-    }
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-    .final-cta > * {
-      position: relative;
-      z-index: 2;
-    }
-    .countdown {
-      font-size: 1rem;
-      color: #b3b3b3;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    .countdown iconify-icon {
-      font-size: 20px repealed;
-    }
-    /* Footer */
-    footer {
-      background: #2a2a40;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.8);
-      width: 100%;
-      border-top: 1px solid #4a3a73;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    }
-    footer a {
-      color: #ffa733;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      transition: color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.25rem;
-    }
-    footer a:hover {
-      color: #ff9100;
-    }
-    footer iconify-icon {
-      font-size: 16px;
-      color: #ffa733;
-      vertical-align: middle;
-    }
-
-    /* Responsive Design */
-    @media (min-width: 769px) {
-      header {
-        padding: 4rem 2rem 3rem;
-      }
-      header h1 {
-        font-size: 3rem;
-      }
-      header h1 span {
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.2rem;
-        max-width: 700px;
-      }
-      .benefits-section {
-        padding: 3rem 2rem;
-      }
-      .benefits-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      }
-      .form-section {
-        padding: 2rem;
-        max-width: 600px;
-      }
-      .testimonials {
-        padding: 2.5rem 2rem;
-      }
-      .testimonial-card {
-        flex: 0 0 300px;
-      }
-      .final-cta {
-        padding: 4rem 2rem 3rem;
-      }
-      .countdown {
-        font-size: 1.1rem;
-      }
-      footer {
-        padding: 2rem 2rem;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Success and Error Messages */
-    .success-message,
-    .error-message {
-      display: none;
-      font-size: 0.9rem;
-      text-align: center;
-      margin-top: 1rem;
-      padding: 0.75rem;
-      border-radius: 8px;
-    }
-    .success-message {
-      background-color: #2a2a40;
-      color: #ffffff;
-    }
-    .error-message {
-      background-color: #ff4d4d;
-      color: #ffffff;
-    }
-    .success-message.show,
-    .error-message.show {
-      display: block;
-    }
+   
   </style>
 </head>
 <body>
-  <header role="banner" data-aos="fade-up">
-    <h1>Transforme seus dias <span>com leveza e clareza</span></h1>
-    <p>Descubra o primeiro passo para cuidar da sua mente e do corpo em apenas 5 minutos por dia — mesmo com uma rotina agitada.</p>
-    <button class="cta-button" aria-label="Baixe o guia gratuito">
+  <header role="banner" data-aos="fade-up" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/cap.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+
+>
+    <h1>
+  Descubra o primeiro passo para  
+  <span style="background-color: #ff5c00; color: white; font-weight: 900; text-transform: uppercase; font-size: 32px; padding: 2px 6px; border-radius: 4px;">
+    transformar seus dias
+  </span>
+</h1>
+
+
+    <p>Uma prática simples que cabe na sua rotina e que contribui pra sua produtividade com clareza e leveza.</p>
+    <button class="cta-button" aria-label="Baixe o guia gratuito" onclick="openModal()">
       <iconify-icon icon="lucide:download"></iconify-icon>
       Quero o Guia Gratuito
-      <span>Missão: não se sabotar!</span>
+      <span>Envio imediato no seu e-mail</span>
     </button>
   </header>
 
   <section class="benefits-section" role="region" aria-labelledby="benefits-heading">
-    <h2 id="benefits-heading" data-aos="fade-up">O que você vai aprender</h2>
+    <h2 id="benefits-heading" data-aos="fade-up">Em apenas 5 minutos por dia você vai:</h2>
     <div class="benefits-grid">
       <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="100">
         <div class="skeleton skeleton-icon"></div>
@@ -534,7 +60,7 @@
         <div class="skeleton skeleton-text short"></div>
         <div class="content">
           <iconify-icon icon="lucide:leaf"></iconify-icon>
-          <p>Menos estresse<br><span>para um dia mais leve</span></p>
+          <p>Reduzir Estresse<br><span>para um dia mais leve</span></p>
         </div>
       </div>
       <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="300">
@@ -543,7 +69,7 @@
         <div class="skeleton skeleton-text short"></div>
         <div class="content">
           <iconify-icon icon="lucide:clock"></iconify-icon>
-          <p>Mais produtividade<br><span>sem esforço desnecessário</span></p>
+          <p>Mais Produtividade<br><span>sem esforço desnecessário</span></p>
         </div>
       </div>
       <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="400">
@@ -552,82 +78,56 @@
         <div class="skeleton skeleton-text short"></div>
         <div class="content">
           <iconify-icon icon="lucide:target"></iconify-icon>
-          <p>Foco renovado<br><span>sem cobrança excessiva</span></p>
+          <p>Foco e Disciplina <br><span>sem cobrança excessiva</span></p>
         </div>
       </div>
-      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="skeleton skeleton-icon"></div>
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text short"></div>
-        <div class="content">
-          <iconify-icon icon="lucide:zap"></iconify-icon>
-          <p>Energia total<br><span>física e mental renovada</span></p>
-        </div>
-      </div>
-    </div>
-    <div class="form-section" data-aos="fade-up">
-      <form id="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
-        <div class="form-group">
-          <iconify-icon icon="lucide:user"></iconify-icon>
-          <input type="text" name="name" placeholder="Seu nome" required aria-label="Nome" autocomplete="name" />
-        </div>
-        <div class="form-group">
-          <iconify-icon icon="lucide:mail"></iconify-icon>
-          <input type="email" name="email" placeholder="Seu melhor e-mail" required aria-label="E-mail" autocomplete="email" />
-        </div>
-        <button type="submit" aria-label="Receber o guia">
-          <iconify-icon icon="lucide:send"></iconify-icon>
-          Sim, quero meu guia agora!
-        </button>
-        <p class="form-note">
-          <iconify-icon icon="lucide:shield-check"></iconify-icon>
-          Seus dados estão seguros. Sem spam, apenas conteúdo transformador.
-        </p>
-      </form>
-      <div class="trust-badge" data-aos="fade-up">
-        <iconify-icon icon="lucide:star"></iconify-icon>
-        Mais de 5.200 mulheres já baixaram o guia!
-      </div>
-      <div class="success-message" id="success-message">Guia enviado com sucesso! ✅</div>
-      <div class="error-message" id="error-message">Erro ao enviar. Tente novamente.</div>
     </div>
   </section>
 
-  <section class="testimonials" role="region" aria-labelledby="testimonials-heading">
-    <h2 id="testimonials-heading" data-aos="fade-up">Mulheres que já transformaram suas vidas</h2>
-    <div class="testimonial-carousel">
-      <div class="testimonial-card skeleton-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="skeleton skeleton-img"></div>
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text short"></div>
-        <div class="content">
-          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Carla, 45 anos" loading="lazy">
-          <p><strong>Me senti mais leve em 3 dias.</strong> É simples e transformador!</p>
-          <span>Carla, 45 anos</span>
-        </div>
+  <section class="self-esteem-section" role="region" aria-labelledby="self-esteem-heading" data-aos="fade-up">
+    <h2 id="self-esteem-heading">Aumente sua Autoestima e Energia</h2>
+    <p>Esses são os 5 passos que você vai precisar fazer pra alavancar sua <span class="highlight">autoestima</span>, <span class="highlight">disposição</span> e <span class="highlight">confiança</span>.</p>
+    <p>Quer ganhar um eBook com 21 dias de práticas simples e diárias que vão dar um ânimo na sua <span class="highlight">autoestima</span> e <span class="highlight">rigor físico</span>? Preencha o formulário e garanta seu PDF com os 21 dias de dicas simples e práticas de graça! O que você está esperando? Preencha o formulário e garanta o seu enquanto é tempo.</p>
+    <button class="cta-button" aria-label="Garanta seu eBook" onclick="openModal()">
+      <iconify-icon icon="lucide:book-open"></iconify-icon>
+      Garanta seu eBook Gratuito
+    </button>
+  </section>
+
+  <div class="modal" id="form-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <div class="progress-bar">
+        <div class="progress-step" id="step-1">1</div>
+        <div class="progress-step" id="step-2">2</div>
+        <div class="progress-step" id="step-3">3</div>
       </div>
-      <div class="testimonial-card skeleton-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="skeleton skeleton-img"></div>
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text short"></div>
-        <div class="content">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Denise, 52 anos" loading="lazy">
-          <p><strong>Rotina com amor próprio.</strong> Gratidão por este guia!</p>
-          <span>Denise, 52 anos</span>
-        </div>
+      <div class="modal-step active" id="modal-step-1">
+        <h2>Passo 1: Seu Nome</h2>
+        <input type="text" id="name" placeholder="Seu Nome" required aria-label="Seu Nome" />
+        <button onclick="nextStep(1)">Próximo</button>
       </div>
-      <div class="testimonial-card skeleton-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="skeleton skeleton-img"></div>
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text short"></div>
-        <div class="content">
-          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ana, 48 anos" loading="lazy">
-          <p><strong>Foco sem cobrança.</strong> O guia mudou meu dia a dia!</p>
-          <span>Ana, 48 anos</span>
+      <div class="modal-step" id="modal-step-2">
+        <h2>Passo 2: Seu Melhor E-mail</h2>
+        <input type="email" id="email" placeholder="Seu E-mail" required aria-label="Seu E-mail" />
+        <button class="back" onclick="prevStep(2)">Voltar</button>
+        <button onclick="nextStep(2)">Próximo</button>
+      </div>
+      <div class="modal-step" id="modal-step-3">
+        <h2>Passo 3: Seu Telefone</h2>
+        <input type="text" id="whatsapp" placeholder="Seu WhatsApp" required aria-label="Seu WhatsApp" />
+        <button class="back" onclick="prevStep(3)">Voltar</button>
+        <button onclick="submitForm()">Enviar</button>
+      </div>
+      <div class="modal-step" id="modal-step-success">
+        <div class="success-message">
+          <iconify-icon icon="lucide:check-circle"></iconify-icon>
+          <p>Parabéns! Você receberá no seu e-mail o seu guia gratuito!</p>
         </div>
+        <button onclick="closeModal()">Fechar</button>
       </div>
     </div>
-  </section>
+  </div>
 
   <section class="final-cta" role="region" aria-labelledby="cta-heading" data-aos="fade-up">
     <h2 id="cta-heading">Desbloqueie sua transformação agora</h2>
@@ -636,7 +136,7 @@
       Disponível gratuitamente por tempo limitado!
     </p>
     <p>21 dias, 5 minutos por dia. Seu guia gratuito está a um clique.</p>
-    <button class="cta-button" aria-label="Desbloquear o guia">
+    <button class="cta-button" aria-label="Desbloquear o guia" onclick="openModal()">
       <iconify-icon icon="lucide:rocket"></iconify-icon>
       Quero desbloquear o Guia de 21 Dias
       <span>Envio imediato, direto no seu e-mail</span>
@@ -656,59 +156,9 @@
     </p>
   </footer>
 
-  <!-- AOS Script without defer to ensure it's loaded before initialization -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Initialize AOS only if it's defined
-    if (typeof AOS !== 'undefined') {
-      AOS.init({ duration: 800, once: true });
-    } else {
-      console.warn('AOS library not loaded.');
-    }
-
-    // Simulate content loading for skeleton effect
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        document.querySelectorAll('.skeleton-card').forEach(card => {
-          card.classList.add('loaded');
-        });
-      }, 1500); // Adjust timing as needed
-    });
-
-    // Form submission handling
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = this;
-      const successMessage = document.getElementById('success-message');
-      const errorMessage = document.getElementById('error-message');
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-        });
-
-        if (response.ok) {
-          successMessage.classList.add('show');
-          form.reset();
-          setTimeout(() => successMessage.classList.remove('show'), 3000);
-        } else {
-          throw new Error('Erro na resposta do servidor');
-        }
-      } catch (error) {
-        errorMessage.classList.add('show');
-        setTimeout(() => errorMessage.classList.remove('show'), 3000);
-        console.error('Erro:', error);
-      }
-    });
-  </script>
-  <!-- Google Tag Manager (exemplo) -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;j.defer=true;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  <script src="script.js">
+ 
   </script>
 </body>
 </html>
