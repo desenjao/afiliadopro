@@ -38,8 +38,9 @@
     <button class="cta-button" aria-label="Baixe o guia gratuito" onclick="openModal()">
       <iconify-icon icon="lucide:download"></iconify-icon>
       Quero o Guia Gratuito
-      <span>Envio imediato no seu e-mail</span>
+      
     </button>
+    <span style="color: white; padding: 1rem;">Envio imediato no seu e-mail</span>
   </header>
 
   <section class="benefits-section" role="region" aria-labelledby="benefits-heading">
@@ -81,6 +82,16 @@
           <p>Foco e Disciplina <br><span>sem cobrança excessiva</span></p>
         </div>
       </div>
+
+      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="skeleton skeleton-icon"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <iconify-icon icon="lucide:bolt"></iconify-icon>
+          <p> Aumentar energia e disposição<br><span>pra tornar seus dias mais leves e produtivos.</span></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -103,18 +114,18 @@
         <div class="progress-step" id="step-3">3</div>
       </div>
       <div class="modal-step active" id="modal-step-1">
-        <h2>Passo 1: Seu Nome</h2>
+        <h2>Seu Nome</h2>
         <input type="text" id="name" placeholder="Seu Nome" required aria-label="Seu Nome" />
         <button onclick="nextStep(1)">Próximo</button>
       </div>
       <div class="modal-step" id="modal-step-2">
-        <h2>Passo 2: Seu Melhor E-mail</h2>
+        <h2>Seu Melhor E-mail</h2>
         <input type="email" id="email" placeholder="Seu E-mail" required aria-label="Seu E-mail" />
         <button class="back" onclick="prevStep(2)">Voltar</button>
         <button onclick="nextStep(2)">Próximo</button>
       </div>
       <div class="modal-step" id="modal-step-3">
-        <h2>Passo 3: Seu Telefone</h2>
+        <h2>Seu Telefone</h2>
         <input type="text" id="whatsapp" placeholder="Seu WhatsApp" required aria-label="Seu WhatsApp" />
         <button class="back" onclick="prevStep(3)">Voltar</button>
         <button onclick="submitForm()">Enviar</button>
@@ -139,8 +150,9 @@
     <button class="cta-button" aria-label="Desbloquear o guia" onclick="openModal()">
       <iconify-icon icon="lucide:rocket"></iconify-icon>
       Quero desbloquear o Guia de 21 Dias
-      <span>Envio imediato, direto no seu e-mail</span>
     </button>
+      <span style="padding: 1rem;">Envio imediato, direto no seu e-mail</span>
+
   </section>
 
   <footer role="contentinfo" data-aos="fade-up">
