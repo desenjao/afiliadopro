@@ -1,1020 +1,714 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Junte-se ao movimento Procrastinação Zero e transforme sua vida agora com Elson Vasconcelos!">
-  <title>Procrastinação Zero - Mude Sua Vida Agora</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Guia gratuito para mulheres 40+: transforme sua rotina com clareza, leveza e autoestima em apenas 5 minutos por dia, mesmo com uma rotina agitada." />
+  <meta name="keywords" content="guia gratuito, clareza mental, autoestima, mulheres 40+, produtividade, bem-estar" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Guia Gratuito: Clareza e Leveza em 21 Dias" />
+  <meta property="og:description" content="Descubra práticas simples para cuidar da mente e do corpo em apenas 5 minutos por dia. Baixe agora o eBook gratuito!" />
+  <meta property="og:image" content="https://your-domain.com/images/hero-woman.webp" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:type" content="website" />
+  <title>Guia Gratuito - Clareza e Leveza em 21 Dias</title>
+  <link rel="icon" type="image/png" href="https://your-domain.com/favicon.png" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1522075782449-4b8ed3e104f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" type="image/webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" defer></script>
   <style>
+    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
-
     body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1e1e2f;
+      color: #ffffff;
       line-height: 1.6;
-      color: #212121;
-      background: #f9fafb;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes clickFeedback {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.95); }
+      100% { transform: scale(1); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* Skeleton Loading Styles */
+    .skeleton {
+      background: #ccc;
+      border-radius: 4px;
+      animation: shimmer 1.5s infinite;
+      background: linear-gradient(90deg, #2a2a40 25%, #3a3a50 50%, #2a2a40 75%);
+      background-size: 200% 100%;
+    }
+    .skeleton-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+    .skeleton-text {
+      height: 16px;
+      margin: 0.5rem 0;
+    }
+    .skeleton-text.short {
+      width: 60%;
+    }
+    .skeleton-card {
+      opacity: 0.7;
+    }
+    .loaded .skeleton {
+      display: none;
+    }
+    .loaded .content {
+      display: block;
+    }
+    .content {
+      display: none;
     }
 
     /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      padding: 1.5rem 0;
-    }
-
-    .header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .logo {
-      height: 60px;
-    }
-
-    .nav-list {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-list a {
-      color: #212121;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .nav-list a:hover {
-      color: #FF5722;
-    }
-
-    .cta-button {
-      background: #FF5722;
-      color: #fff;
-      padding: 0.875rem 1.75rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .cta-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .hamburger {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #212121;
-      position: relative;
-    }
-
-    .hamburger::before,
-    .hamburger::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 2px;
-      background: #212121;
-      transition: transform 0.3s ease;
-    }
-
-    .hamburger::before {
-      top: -8px;
-    }
-
-    .hamburger::after {
-      top: 8px;
-    }
-
-    .menu-toggle[aria-expanded="true"] .hamburger {
-      background: transparent;
-    }
-
-    .menu-toggle[aria-expanded="true"] .hamburger::before {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-toggle[aria-expanded="true"] .hamburger::after {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #FF5722 0%, #9C27B0 100%);
-      color: #fff;
-      padding: 6rem 0;
-      min-height: 80vh;
-    }
-
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 2rem;
-      padding: 0 5rem;
-    }
-
-    .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero img {
-      max-width: 100%;
-      border-radius: 12px;
-     
-    }
-
-    /* Sobre */
-    .sobre {
-      padding: 6rem 0;
-      background: #f3f4f6;
-    }
-
-    .sobre .container {
-      padding: 0 5rem;
-    }
-
-    .sobre h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
+    header {
+      background: linear-gradient(135deg, rgba(30, 30, 47, 0.85), rgba(30, 30, 47, 0.85)), url('img/capa.jpg');
+      background-size: cover;
+      background-position: center top;
+      padding: 2rem 1rem;
       text-align: center;
-      margin-bottom: 2.5rem;
-      color: #FF5722;
-    }
-
-    .sobre-content {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .sobre p {
-      font-size: 1.125rem;
-      color: #424242;
-      flex: 1;
-    }
-
-    .sobre .icon {
-      width: 120px;
-    }
-
-    /* Benefícios */
-    .beneficios {
-      padding: 6rem 0;
-      background: #fff;
-    }
-
-    .beneficios .container {
-      padding: 0 5rem;
-    }
-
-    .beneficios h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: #FF5722;
-    }
-
-    .beneficios-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-
-    .beneficio-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .beneficio-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .beneficio-card .icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #FF5722;
-    }
-
-    .beneficio-card h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .beneficio-card p {
-      font-size: 1.125rem;
-      color: #666;
-    }
-
-    /* Como Começar */
-    .como {
-      padding: 6rem 0;
-      background: #f3f4f6;
-    }
-
-    .como .container {
-      padding: 0 5rem;
-    }
-
-    .como h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: #FF5722;
-    }
-
-    .como-list {
-      list-style: none;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .como-list li {
-      font-size: 1.125rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: #424242;
-    }
-
-    .step-number {
-      font-size: 2rem;
-      color: #FF5722;
-      font-weight: 700;
-    }
-
-    /* Depoimentos */
-    .depoimentos {
-      padding: 6rem 0;
-      background: #fff;
-    }
-
-    .depoimentos .container {
-      padding: 0 5rem;
-    }
-
-    .depoimentos h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: #FF5722;
-    }
-
-    .depoimentos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .depoimento-card {
-      background: #f3f4f6;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .depoimento-card img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-
-    .depoimento-card p {
-      font-size: 1.125rem;
-      font-style: italic;
-      margin-bottom: 1rem;
-      color: #424242;
-    }
-
-    .depoimento-card cite {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #FF5722;
-    }
-
-    /* Urgência */
-    .urgencia {
-      padding: 6rem 0;
-      background: #FF5722;
-      color: #fff;
-      text-align: center;
-    }
-
-    .urgencia .container {
-      padding: 0 5rem;
-    }
-
-    .urgencia h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .urgencia p {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
-    }
-
-    .countdown {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      color: #fff;
-    }
-
-    /* CTA Final */
-    .cta-final {
-      padding: 6rem 0;
-      background: #fff;
-      text-align: center;
-    }
-    .cta-button{
-      background-color:white;
-      color: #FF5722;
-      border: #FF5722 3px outset;
-      border-radius: 30px;
-      border-color: #FF5722;
-    }
-
-    .cta-final .container {
-      padding: 0 5rem;
-    }
-
-    .cta-final h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #FF5722;
-      margin-bottom: 2.5rem;
-    }
-
-    .cta-final .video-container {
-      max-width: 896px;
-      margin: 0 auto 3rem;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      aspect-ratio: 16 / 9;
-    }
-
-    .cta-final iframe {
       width: 100%;
-      height: 100%;
+      position: relative;
+      isolation: isolate;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffa733;
+      margin-bottom: 1rem;
+    }
+    header h1 span {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #e0e0e0;
+    }
+    header p {
+      font-size: 1rem;
+      color: #b3b3b3;
+      max-width: 100%;
+      margin: 0 auto 1.5rem;
+      padding: 0 0.5rem;
+    }
+    .cta-button {
+      background-color: #ffa733;
+      color: #1e1e2f;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
       border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(255, 167, 51, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ff9100;
+      box-shadow: 0 6px 15px rgba(255, 167, 51, 0.4);
+    }
+    .cta-button:active {
+      animation: clickFeedback 0.2s ease;
+    }
+    .cta-button iconify-icon {
+      font-size: 20px;
+      color: #1e1e2f;
+    }
+    .cta-button span {
+      font-size: 0.85rem;
+      color: #4a3a73;
+      font-weight: 400;
     }
 
-    .cta-form {
-      max-width: 512px;
+    /* Benefits Section */
+    .benefits-section {
+      padding: 2rem 1rem;
+      max-width: 100%;
+      text-align: center;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffa733;
+      margin-bottom: 1.5rem;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
       margin: 0 auto;
-      background: #fff;
-      padding: 2.5rem;
+    }
+    .benefit-card {
+      background: #2a2a40;
+      padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    .benefit-card iconify-icon {
+      font-size: 50px;
+      color: #ffa733;
+      margin-bottom: 1rem;
+    }
+    .benefit-card p {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+    .benefit-card p span {
+      font-weight: 400;
+      color: #b3b3b3;
+      display: block;
+      margin-top: 0.75rem;
     }
 
-    .form-group {
+    /* Form Section */
+    .form-section {
+      padding: 1.5rem;
+      max-width: 100%;
+      margin: 2rem auto;
+      background: #2a2a40;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    form {
       display: flex;
       flex-direction: column;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
     }
-
-    .form-group label {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      color: #424242;
+    .form-group {
+      position: relative;
+      width: 100%;
     }
-
-    .form-group input {
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    input {
+      padding: 1rem 1rem 1rem 3rem;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      border: 1px solid #4a3a73;
+      background-color: #2a2a40;
+      color: #ffffff;
+      width: 100%;
+      transition: all 0.3s ease;
     }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: #FF5722;
-      box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.2);
+    input:focus {
+      outline: 2px solid #ffa733;
+      border-color: #ffa733;
     }
-
-    .form-error {
-      color: #FF5722;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
+    input:invalid:not(:placeholder-shown) {
+      border-color: #ff4d4d;
+    }
+    .form-group iconify-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #b3b3b3;
+    }
+    button[type="submit"] {
+      background-color: #ffa733;
+      color: #1e1e2f;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 10px rgba(255, 167, 51, 0.3);
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    button[type="submit"]:hover {
+      background-color: #ff9100;
+      box-shadow: 0 6px 15px rgba(255, 167, 51, 0.4);
+    }
+    button[type="submit"]:active {
+      animation: clickFeedback 0.2s ease;
+    }
+    button[type="submit"] iconify-icon {
+      font-size: 20px;
+      color: #1e1e2f;
+    }
+    .form-note {
+      font-size: 0.85rem;
+      color: #b3b3b3;
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+    .form-note iconify-icon {
+      font-size: 16px;
+      color: #ffa733;
+      vertical-align: middle;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      animation: pulse 2s infinite;
+    }
+    .trust-badge iconify-icon {
+      font-size: 24px;
+      color: #ffa733;
+    }
+    .error-message {
       display: none;
+      font-size: 0.9rem;
+      color: #ff4d4d;
+      text-align: center;
+      margin-top: 0.5rem;
+      background-color: #2a2a40;
+      padding: 0.75rem;
+      border-radius: 8px;
     }
-
-    .form-group.invalid .form-error {
+    .error-message.show {
       display: block;
     }
 
-    .honeypot {
-      display: none;
+    /* Testimonials Section */
+    .testimonials {
+      padding: 2rem 1rem;
+      max-width: 100%;
+      margin: 0 auto;
     }
-
-    /* Footer */
-    footer {
-      padding: 1.5rem 0;
-      background: #212121;
-      color: #bbb;
-      text-align: center;
-      font-size: 0.875rem;
+    .testimonials h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffa733;
+      margin-bottom: 1.5rem;
     }
-
-    footer .container {
-      padding: 0 5rem;
+    .testimonial-carousel {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
     }
-
-    footer p {
+    .testimonial-card {
+      flex: 0 0 250px;
+      background: #2a2a40;
+      padding: 1.5rem;
+      border-radius: 12px;
+      scroll-snap-align: start;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .testimonial-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      border: 2px solid #ffa733;
+      aspect-ratio: 1/1;
+    }
+    .testimonial-card .skeleton-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 9999px;
       margin-bottom: 1rem;
     }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
+    .testimonial-card p {
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+    .testimonial-card p strong {
+      font-weight: 700;
+    }
+    .testimonial-card span {
+      font-weight: 600;
+      color: #b3b3b3;
+      display: block;
+      margin-top: 0.75rem;
     }
 
-    .social-links a {
-      color: #fff;
-      font-size: 1.25rem;
-      transition: color 0.3s ease;
+    /* Final CTA Section */
+    .final-cta {
+      background: linear-gradient(135deg, rgba(30, 30, 47, 0.85), rgba(30, 30, 47, 0.85)), url('img/saude.jpg');
+      background-size: cover;
+      background-position: center top;
+      padding: 2rem 1rem;
+      text-align: center;
+      width: 100%;
+      position: relative;
+      isolation: isolate;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
     }
-
-    .social-links a:hover {
-      color: #FF5722;
-    }
-
-    /* Pop-up de Saída */
-    .exit-popup {
-      display: none;
-      position: fixed;
+    .final-cta::before {
+      content: '';
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 2000;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    .final-cta > * {
+      position: relative;
+      z-index: 2;
+    }
+    .countdown {
+      font-size: 1rem;
+      color: #b3b3b3;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      display: flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
     }
-
-    .exit-popup-content {
-      background: #fff;
-      padding: 2.5rem;
-      border-radius: 12px;
+    .countdown iconify-icon {
+      font-size: 20px repealed;
+    }
+    /* Footer */
+    footer {
+      background: #2a2a40;
       text-align: center;
-      max-width: 512px;
-      position: relative;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.8);
+      width: 100%;
+      border-top: 1px solid #4a3a73;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
     }
-
-    .exit-popup-content h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #FF5722;
-      margin-bottom: 1rem;
-    }
-
-    .exit-popup-content p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      color: #424242;
-    }
-
-    .exit-popup-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #424242;
-      cursor: pointer;
+    footer a {
+      color: #ffa733;
+      text-decoration: none;
+      margin: 0 0.5rem;
       transition: color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+    footer a:hover {
+      color: #ff9100;
+    }
+    footer iconify-icon {
+      font-size: 16px;
+      color: #ffa733;
+      vertical-align: middle;
     }
 
-    .exit-popup-close:hover {
-      color: #FF5722;
-    }
-
-    /* Animações */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .animate {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .animate.visible {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-
-    /* Separadores */
-    .section-divider {
-      border-top: 1px solid #e5e7eb;
-      margin: 3rem 0;
-    }
-
-    /* Responsividade */
-    @media (min-width: 1024px) {
-      .container {
-        padding: 0 5rem;
+    /* Responsive Design */
+    @media (min-width: 769px) {
+      header {
+        padding: 4rem 2rem 3rem;
+      }
+      header h1 {
+        font-size: 3rem;
+      }
+      header h1 span {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+        max-width: 700px;
+      }
+      .benefits-section {
+        padding: 3rem 2rem;
+      }
+      .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .form-section {
+        padding: 2rem;
+        max-width: 600px;
+      }
+      .testimonials {
+        padding: 2.5rem 2rem;
+      }
+      .testimonial-card {
+        flex: 0 0 300px;
+      }
+      .final-cta {
+        padding: 4rem 2rem 3rem;
+      }
+      .countdown {
+        font-size: 1.1rem;
+      }
+      footer {
+        padding: 2rem 2rem;
+        font-size: 0.9rem;
       }
     }
 
-    @media (max-width: 768px) {
-      .imgcenter{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .container {
-        padding: 0 1.5rem;
-      }
-
-      .header .container {
-        gap: 1rem;
-      }
-
-      .nav-list {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-list.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .hero .container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 0 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero img {
-        max-width: 80%;
-        margin-top: 1.5rem;
-      }
-
-      .sobre .container,
-      .beneficios .container,
-      .como .container,
-      .depoimentos .container,
-      .urgencia .container,
-      .cta-final .container {
-        padding: 0 1.5rem;
-      }
-
-      .sobre-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .sobre p {
-        max-width: 100%;
-      }
-
-      .beneficios-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .depoimentos-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-final iframe {
-        height: 200px;
-      }
-
-      .cta-form {
-        padding: 1.5rem;
-      }
+    /* Success and Error Messages */
+    .success-message,
+    .error-message {
+      display: none;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 8px;
     }
-    @keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 115, 0, 0.7);
-  }
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 115, 0, 0.7);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(255, 115, 0, 0);
-  }
-}
-
-.pulse-btn {
-  background-color: #ff7300;
-  color: white;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  animation: pulse 2s infinite;
-  transition: transform 0.2s ease;
-}
-.pulse-btn1 {
-  background-color: #ffffff;
-  color:#FF5722;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  animation: pulse 2s infinite;
-  transition: transform 0.2s ease;
-}
-
+    .success-message {
+      background-color: #2a2a40;
+      color: #ffffff;
+    }
+    .error-message {
+      background-color: #ff4d4d;
+      color: #ffffff;
+    }
+    .success-message.show,
+    .error-message.show {
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <a href="/" aria-label="Página inicial do Procrastinação Zero">
-        <img src="img/logo.png" alt="Logo Procrastinação Zero" class="logo">
-      </a>
-      <nav class="nav">
-        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
-          <span class="hamburger"></span>
-        </button>
-        <ul class="nav-list">
-          <li><a href="#sobre" aria-label="Sobre o movimento">Sobre</a></li>
-          <li><a href="#beneficios" aria-label="Benefícios do movimento">Benefícios</a></li>
-          <li><a href="#como" aria-label="Como começar">Como Começar</a></li>
-          <li><a href="#cta-final" aria-label="Entrar no desafio">Entrar no Desafio</a></li>
-        </ul>
-      </nav>
-      <a href="#cta-final" class="cta-button pulse-btn" >Começar Grátis</a>
-    </div>
+  <header role="banner" data-aos="fade-up">
+    <h1>Transforme seus dias <span>com leveza e clareza</span></h1>
+    <p>Descubra o primeiro passo para cuidar da sua mente e do corpo em apenas 5 minutos por dia — mesmo com uma rotina agitada.</p>
+    <button class="cta-button" aria-label="Baixe o guia gratuito">
+      <iconify-icon icon="lucide:download"></iconify-icon>
+      Quero o Guia Gratuito
+      <span>Missão: não se sabotar!</span>
+    </button>
   </header>
-  
-  <!-- Sobre -->
-  <section id="sobre" class="sobre animate">
-    <div class="container">
-      <h2>Procrastinação Zero : <span style="color: #9C27B0;">Sua Transformação Começa Aqui</span></h2>
-      <div class="sobre-content">
-        <p>Chega de metas que nunca saem do papel. O "Procrastinação Zero" é um plano prático, direto ao ponto, para te tirar da estagnação e te colocar em movimento real — mesmo que você ache que “não tem foco”</p>
-        <img src="img/logo.png" alt="" aria-hidden="true" class="icon">
-      </div>
-    </div>
-  </section>
 
-  <!-- Hero -->
-  <section id="hero" class="hero animate">
-    <div class="container">
-      <div>
-        <h1>Não é Falta de Tempo. É Falta de Direção.</h1>
-        <p>Descubra o passo a passo para eliminar a procrastinação e construir uma rotina poderosa. Começando com apenas 10 minutos por dia.</p>
-        <a href="#cta-final" class="cta-button pulse-btn1">Quero Descobrir</a>
-      </div>
-      <div class="imgcenter">
-      <img src="img/logocomp1.png" alt="Elson Vasconcelos motivando" loading="lazy">
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-
-  <div class="section-divider"></div>
-
-  <!-- Benefícios -->
-  <section id="beneficios" class="beneficios animate">
-    <div class="container">
-      <h2>Por que Você Precisa Entrar?</h2>
-      <div class="beneficios-grid">
-        <div class="beneficio-card">
-          <span class="icon" aria-hidden="true">📍</span>
-          <h3>Clareza Total</h3>
-          <p>Crie uma rotina à prova de distrações.</p>
+  <section class="benefits-section" role="region" aria-labelledby="benefits-heading">
+    <h2 id="benefits-heading" data-aos="fade-up">O que você vai aprender</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="skeleton skeleton-icon"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <iconify-icon icon="lucide:brain"></iconify-icon>
+          <p>Clareza mental<br><span>para decisões mais assertivas</span></p>
         </div>
-        <div class="beneficio-card">
-          <span class="icon" aria-hidden="true">🔥</span>
-          <h3>Rotina Poderosa</h3>
-          <p>Domine sua mente antes que ela te sabote.</p>
+      </div>
+      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="skeleton skeleton-icon"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <iconify-icon icon="lucide:leaf"></iconify-icon>
+          <p>Menos estresse<br><span>para um dia mais leve</span></p>
         </div>
-        <div class="beneficio-card">
-          <span class="icon" aria-hidden="true">🚀</span>
-          <h3>Disciplina Prática</h3>
-          <p>Progresso visível em 7 dias — garantido.</p>
+      </div>
+      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="skeleton skeleton-icon"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <iconify-icon icon="lucide:clock"></iconify-icon>
+          <p>Mais produtividade<br><span>sem esforço desnecessário</span></p>
         </div>
-        <div class="beneficio-card">
-          <span class="icon" aria-hidden="true">💥</span>
-          <h3>Ação com Propósito</h3>
-          <p>Transforme sonhos em conquistas reais.</p>
+      </div>
+      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="skeleton skeleton-icon"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <iconify-icon icon="lucide:target"></iconify-icon>
+          <p>Foco renovado<br><span>sem cobrança excessiva</span></p>
+        </div>
+      </div>
+      <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="skeleton skeleton-icon"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <iconify-icon icon="lucide:zap"></iconify-icon>
+          <p>Energia total<br><span>física e mental renovada</span></p>
         </div>
       </div>
     </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Como Começar -->
-  <section id="como" class="como animate">
-    <div class="container">
-      <h2>Como Dar o Primeiro Passo?</h2>
-      <ol class="como-list">
-        <li><span class="step-number">1</span> Preencha o formulário abaixo</li>
-        <li><span class="step-number">2</span> Receba o desafio Procrastinação Zero</li>
-        <li><span class="step-number">3</span> Dê o primeiro passo para se tornar melhor que ontem</li>
-      </ol>
-      <div style="display: flex;align-items: center; justify-content: center;">
-      <a href="#cta-final" class="cta-button pulse-btn" >Quero Começar Agora!</a>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Depoimentos -->
-  <section id="depoimentos" class="depoimentos animate">
-    <div class="container">
-      <h2>O Que Nossos Membros Dizem</h2>
-      <div class="depoimentos-grid">
-        <div class="depoimento-card">
-          <img src="img/user1.jpg" alt="Foto de Fernanda" loading="lazy">
-          <p>“Em 7 dias minha rotina virou do avesso — pro lado certo. Nunca mais voltei atrás.”</p>
-          <cite>Fernando, ex-procrastinador</cite>
-        </div>
-        <div class="depoimento-card">
-          <img src="img/user2.jpg" alt="Foto de Carlos" loading="lazy">
-          <p>“O método me deu clareza para alcançar o que sempre adiei.”</p>
-          <cite>Carlos, empreendedor</cite>
-        </div>
-        <div class="depoimento-card">
-          <img src="img/user3.jpg" alt="Foto de Ana" loading="lazy">
-          <p>“Resultados que nunca imaginei, tudo em semanas!”</p>
-          <cite>Ana, estudante</cite>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Urgência -->
-  <section id="urgencia" class="urgencia animate">
-    <div class="container">
-      <h2>Vagas Limitadas Ação Imediata!</h2>
-      <p>As vagas são limitadas e o próximo ciclo já está começando.
-Se você deixar pra depois, já sabe o final.</p>
-      <div class="countdown" id="countdown">00:00:00</div>
-      <a href="#cta-final" class="cta-button pulse-btn1">Quero Minha Vaga!</a>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- CTA Final -->
-  <section id="cta-final" class="cta-final animate">
-    <div class="container">
-      <h2>Está Pronto para Mudar?</h2>
-      <div class="video-container">
-       <iframe 
-  src="https://www.youtube.com/embed/WIS3PzNJEdU" 
-  title="Vídeo motivacional de Elson Vasconcelos"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen
-  class="w-full max-w-3xl aspect-video mx-auto rounded-xl shadow-lg">
-</iframe>
-      </div>
-      <form action="https://seulinkdemailchimp.com" method="POST" class="cta-form" novalidate>
+    <div class="form-section" data-aos="fade-up">
+      <form id="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
         <div class="form-group">
-          <label for="nome" style="color: #FF5722;">Seu nome</label>
-          <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-          <span class="form-error" style="color: #FF5722;">Por favor, insira seu nome.</span>
+          <iconify-icon icon="lucide:user"></iconify-icon>
+          <input type="text" name="name" placeholder="Seu nome" required aria-label="Nome" autocomplete="name" />
         </div>
         <div class="form-group">
-          <label for="email "style="color: #FF5722;">Seu melhor e-mail</label>
-          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-          <span class="form-error" Por favor, insira um e-mail válido.</span>
+          <iconify-icon icon="lucide:mail"></iconify-icon>
+          <input type="email" name="email" placeholder="Seu melhor e-mail" required aria-label="E-mail" autocomplete="email" />
         </div>
-        <div class="form-group">
-          <label for="whatsapp" style="color: #FF5722;">Seu WhatsApp (opcional)</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp">
-        </div>
-        <div class="form-group honeypot">
-          <label for="honeypot" style="color: #FF5722;">Deixe em branco</label>
-          <input type="text" id="honeypot" name="honeypot">
-        </div>
-        <button type="submit" class="cta-button  pulse-btn">enviar</button>
+        <button type="submit" aria-label="Receber o guia">
+          <iconify-icon icon="lucide:send"></iconify-icon>
+          Sim, quero meu guia agora!
+        </button>
+        <p class="form-note">
+          <iconify-icon icon="lucide:shield-check"></iconify-icon>
+          Seus dados estão seguros. Sem spam, apenas conteúdo transformador.
+        </p>
       </form>
+      <div class="trust-badge" data-aos="fade-up">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        Mais de 5.200 mulheres já baixaram o guia!
+      </div>
+      <div class="success-message" id="success-message">Guia enviado com sucesso! ✅</div>
+      <div class="error-message" id="error-message">Erro ao enviar. Tente novamente.</div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2025 vasconcelosdgt. Transforme-se agora.</p>
-      <p>eitadevis</p>
-      
+  <section class="testimonials" role="region" aria-labelledby="testimonials-heading">
+    <h2 id="testimonials-heading" data-aos="fade-up">Mulheres que já transformaram suas vidas</h2>
+    <div class="testimonial-carousel">
+      <div class="testimonial-card skeleton-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="skeleton skeleton-img"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Carla, 45 anos" loading="lazy">
+          <p><strong>Me senti mais leve em 3 dias.</strong> É simples e transformador!</p>
+          <span>Carla, 45 anos</span>
+        </div>
+      </div>
+      <div class="testimonial-card skeleton-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="skeleton skeleton-img"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Denise, 52 anos" loading="lazy">
+          <p><strong>Rotina com amor próprio.</strong> Gratidão por este guia!</p>
+          <span>Denise, 52 anos</span>
+        </div>
+      </div>
+      <div class="testimonial-card skeleton-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="skeleton skeleton-img"></div>
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text short"></div>
+        <div class="content">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ana, 48 anos" loading="lazy">
+          <p><strong>Foco sem cobrança.</strong> O guia mudou meu dia a dia!</p>
+          <span>Ana, 48 anos</span>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="final-cta" role="region" aria-labelledby="cta-heading" data-aos="fade-up">
+    <h2 id="cta-heading">Desbloqueie sua transformação agora</h2>
+    <p class="countdown">
+      <iconify-icon icon="lucide:clock"></iconify-icon>
+      Disponível gratuitamente por tempo limitado!
+    </p>
+    <p>21 dias, 5 minutos por dia. Seu guia gratuito está a um clique.</p>
+    <button class="cta-button" aria-label="Desbloquear o guia">
+      <iconify-icon icon="lucide:rocket"></iconify-icon>
+      Quero desbloquear o Guia de 21 Dias
+      <span>Envio imediato, direto no seu e-mail</span>
+    </button>
+  </section>
+
+  <footer role="contentinfo" data-aos="fade-up">
+    <p>
+      <iconify-icon icon="lucide:heart"></iconify-icon>
+      Feito com propósito para mulheres que querem recomeçar com leveza
+      <br>
+      <a href="#" aria-label="Política de Privacidade"><iconify-icon icon="lucide:shield-check"></iconify-icon>Política de Privacidade</a> |
+      <a href="#" aria-label="Sobre Nós"><iconify-icon icon="lucide:user-round"></iconify-icon>Sobre</a> |
+      <a href="#" aria-label="Contato"><iconify-icon icon="lucide:mail"></iconify-icon>Contato</a>
+      <br>
+      Desenvolvido por <a href="https://eitadevis.vercel.app">Eita Devis</a>
+    </p>
   </footer>
 
-  <!-- Pop-up de Saída -->
-  <div class="exit-popup" id="exitPopup">
-    <div class="exit-popup-content">
-      <button class="exit-popup-close" aria-label="Fechar pop-up">✖</button>
-      <h2>Não Desista Agora!</h2>
-      <p>Você está a um passo de transformar sua vida. Inscreva-se e receba um guia gratuito!</p>
-      <a href="#cta-final" class="cta-button">Quero o Guia Grátis!</a>
-    </div>
-  </div>
-
+  <!-- AOS Script without defer to ensure it's loaded before initialization -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Menu hambúrguer
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.querySelector('.nav-list');
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      navList.classList.toggle('active');
-    });
-
-    // Validação de formulário
-    const form = document.querySelector('.cta-form');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nome = form.querySelector('#nome');
-      const email = form.querySelector('#email');
-      const honeypot = form.querySelector('#honeypot').value;
-      let isValid = true;
-
-      if (honeypot) {
-        return;
-      }
-
-      if (!nome.value.trim()) {
-        nome.parentElement.classList.add('invalid');
-        isValid = false;
-      } else {
-        nome.parentElement.classList.remove('invalid');
-      }
-
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        email.parentElement.classList.add('invalid');
-        isValid = false;
-      } else {
-        email.parentElement.classList.remove('invalid');
-      }
-
-      if (isValid) {
-        form.submit();
-      }
-    });
-
-    form.querySelectorAll('input').forEach(input => {
-      input.addEventListener('input', () => {
-        if (input.value.trim()) {
-          input.parentElement.classList.remove('invalid');
-        }
-      });
-    });
-
-   // Pega o elemento onde vai exibir o contador
-  const countdownElement = document.getElementById('countdown');
-
-  // Define o prazo final (24 horas a partir do carregamento da página)
-  const endTime = new Date(new Date().getTime() + 1 * 60 * 60 * 1000);
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = endTime - now;
-
-    if (diff <= 0) {
-      countdownElement.textContent = "00:00:00";
-      clearInterval(interval);
-      return;
+    // Initialize AOS only if it's defined
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 800, once: true });
+    } else {
+      console.warn('AOS library not loaded.');
     }
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    // Simulate content loading for skeleton effect
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.skeleton-card').forEach(card => {
+          card.classList.add('loaded');
+        });
+      }, 1500); // Adjust timing as needed
+    });
 
-    countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes
-      .toString()
-      .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-  }
+    // Form submission handling
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = this;
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
 
-  // Atualiza a cada segundo
-  const interval = setInterval(updateCountdown, 1000);
-  updateCountdown(); // atualiza na hora também, sem esperar o primeiro segundo
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+        });
 
-    // Pop-up de saída
-    const exitPopup = document.getElementById('exitPopup');
-    const closePopup = document.querySelector('.exit-popup-close');
-    let popupShown = false;
-    document.addEventListener('mouseleave', (e) => {
-      if (e.clientY <= 0 && !popupShown) {
-        exitPopup.style.display = 'flex';
-        popupShown = true;
+        if (response.ok) {
+          successMessage.classList.add('show');
+          form.reset();
+          setTimeout(() => successMessage.classList.remove('show'), 3000);
+        } else {
+          throw new Error('Erro na resposta do servidor');
+        }
+      } catch (error) {
+        errorMessage.classList.add('show');
+        setTimeout(() => errorMessage.classList.remove('show'), 3000);
+        console.error('Erro:', error);
       }
     });
-    closePopup.addEventListener('click', () => {
-      exitPopup.style.display = 'none';
-    });
-
-    // Animação ao carregar seções
-    const animateSections = document.querySelectorAll('.animate');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    animateSections.forEach(section => observer.observe(section));
+  </script>
+  <!-- Google Tag Manager (exemplo) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;j.defer=true;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
   </script>
 </body>
 </html>
