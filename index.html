@@ -13,11 +13,31 @@
   <meta property="og:type" content="website" />
   <title>Guia Gratuito - Clareza e Leveza em 21 Dias</title>
   <link rel="icon" type="image/png" href="img/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" defer></script>
   
   <style>
+    :root {
+      --primary-color: #fa9f08;
+      --primary-dark: #e8900a;
+      --text-dark: #2d3748;
+      --text-light: #718096;
+      --text-white: #ffffff;
+      --bg-light: #f8f9fa;
+      --bg-white: #ffffff;
+      --bg-dark: #1a1a1a;
+      --border-color: #e2e8f0;
+      
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      
+      --border-radius: 0.75rem;
+      --border-radius-lg: 1rem;
+      --border-radius-xl: 1.5rem;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -27,46 +47,66 @@
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: var(--text-dark);
       overflow-x: hidden;
     }
 
-    /* Hero Section */
-.hero-section {
-  background-image: url('img/cap.png'); 
-  background-size: cover; /* Faz a imagem preencher toda a área */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita repetições */
-  min-height: 100vh;
-  width: 100vw; /* Garante que ocupe toda a largura da tela */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding: 2rem;
-  position: relative;
-}
+      /* Hero Section */
+      .hero-section {
+      background-image: url('img/cap.png'); 
+    background-size: cover; /* Faz a imagem preencher toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetições */
+    min-height: 100vh;
+    width: 100vw; /* Garante que ocupe toda a largura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    position: relative;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        z-index: 1;
+      }
 
-    .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
+    
 
-    .hero-content p {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
+      .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+        font-weight: 300;
+      }
 
     .cta-button {
-      background: linear-gradient(45deg, #fa9f08, #ee5a24);
-      color: white;
+      background: var(--primary-color);
+      color: var(--text-white);
       border: none;
       padding: 1rem 2rem;
       font-size: 1.1rem;
@@ -78,271 +118,264 @@
       align-items: center;
       gap: 0.5rem;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      box-shadow: var(--shadow-md);
     }
 
     .cta-button:hover {
+      background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      box-shadow: var(--shadow-lg);
     }
 
     .delivery-note {
       display: block;
       margin-top: 1rem;
       font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    .scroll-down {
-      position: absolute;
-      bottom: 2rem;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      text-align: center;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
-    }
-
-    /* Section Divider */
-    .section-divider {
-      width: 100%;
-      height: 100px;
-      display: block;
+      opacity: 0.9;
     }
 
     /* Form Section */
     .form-section {
-      background: #f8f9fa;
-      padding: 4rem 2rem;
-      text-align: center;
+      background: var(--bg-light);
+      padding: 4rem 1rem;
     }
 
-    .form-wrapper {
+    .form-container {
       max-width: 600px;
       margin: 0 auto;
     }
 
-    .form-wrapper h2 {
+    .form-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .form-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--text-dark);
       margin-bottom: 1rem;
-      color: #2c3e50;
+      font-weight: 600;
     }
 
-    .form-wrapper p {
-      font-size: 1.1rem;
+    .form-subtitle {
+      color: var(--text-light);
       margin-bottom: 2rem;
-      color: #666;
+      font-size: 1rem;
     }
 
-    .urgency-note {
-      
+    .urgency-banner {
       background: #fff3cd;
       border: 1px solid #ffeaa7;
-      border-radius: 8px;
+      color: #856404;
       padding: 1rem;
-      margin-bottom: 1rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      color: #856404;
+      font-weight: 500;
     }
 
     .mini-faq {
-      background: white;
-      border-radius: 12px;
+      background: var(--bg-light);
+      border-radius: var(--border-radius);
       padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: left;
     }
 
     .mini-faq h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+    }
+
+    .faq-item {
       margin-bottom: 1rem;
-      color: #2c3e50;
+      padding-bottom: 1rem;
     }
 
-    .mini-faq-item {
-      text-align: left;
-      margin-bottom: 0.5rem;
+    .faq-item:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .mini-faq-item p {
-      margin: 0;
-      font-size: 0.95rem;
+    .faq-item strong {
+      color: var(--text-dark);
+      display: block;
+      margin-bottom: 0.25rem;
     }
 
-    form {
+    .faq-item span {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .modern-form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 400px;
-      margin: 0 auto;
     }
 
-    form input {
+    .modern-input {
+      width: 100%;
       padding: 1rem;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius);
       font-size: 1rem;
       transition: border-color 0.3s ease;
     }
 
-    form input:focus {
+    .modern-input:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: var(--primary-color);
     }
 
-    form button {
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      color: white;
+    .submit-button {
+      background: var(--primary-color);
+      color: var(--text-white);
       border: none;
       padding: 1rem;
       font-size: 1.1rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    form button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    .submit-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 4rem 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Main Title Section */
     .main-title-section {
-      background: #1a1a1a;
-      color: white;
-      padding: 4rem 2rem;
+      background: var(--bg-dark);
+      color: var(--text-white);
+    }
+
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .main-title-section h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 1rem;
-    }
-
     .highlight {
-      color: #fa9f08;
-      font-weight: 700;
+      color: var(--primary-color);
+      font-weight: 600;
     }
 
     /* About Section */
     .about-section {
-      background: white;
-      padding: 4rem 2rem;
-      text-align: center;
+      background: var(--bg-white);
     }
 
     .about-content {
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    .about-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 2rem;
-      color: #2c3e50;
-    }
-
-    .about-section p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #666;
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-light);
       margin-bottom: 1.5rem;
     }
 
     /* Testimonials Section */
     .testimonials-section {
-      background: #f8f9fa;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .testimonials-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
-      color: #2c3e50;
+      background: var(--bg-light);
     }
 
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     .testimonial-card {
-      background: white;
+      background: var(--bg-white);
+      border-radius: var(--border-radius-lg);
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
-    .testimonial-card img {
-      width: 80px;
-      height: 80px;
+    .testimonial-avatar {
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      margin-bottom: 1rem;
+      margin: 0 auto 1rem;
       object-fit: cover;
     }
 
-    .testimonial-card p {
+    .testimonial-text {
       font-style: italic;
+      color: var(--text-dark);
       margin-bottom: 1rem;
-      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    .testimonial-card .name {
+    .testimonial-author {
       font-weight: 600;
-      color: #2c3e50;
-      font-style: normal;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
     }
 
-    .proof {
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+    .testimonial-location {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
     }
 
-    .proof img {
-      width: 40px;
-      height: 40px;
-    }
-
-    .verified {
-      color: #27ae60;
-      font-weight: 600;
+    .testimonial-verified {
+      color: #10b981;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
 
     /* Benefits Section */
     .benefits-section {
-      background: #1a1a1a;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .benefits-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
+      background: var(--bg-dark);
+      color: var(--text-white);
     }
 
     .benefits-grid {
@@ -354,36 +387,511 @@
     }
 
     .benefit-card {
-      background: rgba(255,255,255,0.1);
-      padding: 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      text-align: center;
+      padding: 2rem 1rem;
+      transition: transform 0.3s ease;
     }
 
     .benefit-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.15);
+      transform: translateY(-4px);
     }
 
-    .benefit-card iconify-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #fa9f08;
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: var(--text-white);
     }
 
-    .benefit-card p {
-      font-size: 1.1rem;
+    .benefit-title {
+      font-size: 1.2rem;
       font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
-    .benefit-card span {
-      font-weight: 400;
+    .benefit-subtitle {
+      font-size: 0.9rem;
       opacity: 0.8;
     }
 
-    /* Skeleton Loading Effect */
+    /* Success Stories Section */
+    .success-stories-section {
+      background: var(--bg-white);
+      text-align: center;
+    }
+
+    .success-quote {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--bg-light);
+      padding: 2.5rem;
+      border-radius: var(--border-radius-lg);
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    .success-quote::before {
+      content: '"';
+      font-size: 3rem;
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+      opacity: 0.3;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-color);
+    }
+
+    /* How It Works Section */
+    .how-it-works-section {
+      background: var(--bg-light);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: var(--bg-white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      color: var(--text-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .step-description {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: var(--bg-white);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item-main {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem;
+      background: transparent;
+      border: none;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: var(--bg-light);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      display: none;
+    }
+
+    /* Final CTA Section */
+    .final-cta-section {
+      background: var(--bg-dark);
+      color: var(--text-white);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .countdown-display {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      display: inline-block;
+    }
+
+    .countdown-text {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .countdown-timer {
+      font-family: 'Inter', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: var(--bg-white);
+      border-radius: var(--border-radius-lg);
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      background: var(--primary-color);
+      color: var(--text-white);
+      padding: 2rem 2rem 1rem;
+      border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: var(--text-white);
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .progress-step {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .progress-step.active {
+      background: var(--text-white);
+      color: var(--primary-color);
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .modal-step {
+      display: none;
+      text-align: center;
+    }
+
+    .modal-step.active {
+      display: block;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.3s;
+    }
+
+    .modal-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .modal-button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .modal-button.primary {
+      background: var(--primary-color);
+      color: var(--text-white);
+    }
+
+    .modal-button.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .modal-button.secondary {
+      background: var(--border-color);
+      color: var(--text-dark);
+    }
+
+    .success-message {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      background: #10b981;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      color: var(--text-white);
+    }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--primary-color);
+      color: var(--text-white);
+      padding: 1rem;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sticky-cta-content {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sticky-countdown {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+      background:var(--text-white) ;
+      color: var(--primary-color);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      margin-bottom: 1rem;
+      opacity: 0.9;
+      line-height: 1.8;
+      color: var(--primary-color);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .footer-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-link:hover {
+      opacity: 1;
+    }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      margin: 1rem 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .section {
+        padding: 3rem 1rem;
+      }
+
+      .form-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .testimonials-grid,
+      .benefits-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .sticky-cta {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .modal-buttons {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Loading Animation */
+    .loading {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Skeleton Loading */
     .skeleton-card {
       position: relative;
     }
@@ -392,7 +900,7 @@
       background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
       background-size: 200% 100%;
       animation: loading 1.5s infinite;
-      border-radius: 4px;
+      border-radius: var(--border-radius);
     }
 
     .skeleton-icon {
@@ -403,7 +911,7 @@
     }
 
     .skeleton-text {
-      height: 20px;
+      height: 16px;
       margin-bottom: 0.5rem;
     }
 
@@ -429,640 +937,141 @@
     .skeleton-card.loaded .content {
       opacity: 1;
     }
-
-    /* Success Stories Section */
-    .success-stories-section {
-      background: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .success-stories-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
-      color: #2c3e50;
-    }
-
-    .success-story-card {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 12px;
-    }
-
-    .success-story-card img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .success-story-content {
-      text-align: left;
-    }
-
-    .success-story-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #2c3e50;
-    }
-
-    .success-story-content p {
-      margin-bottom: 0.5rem;
-      color: #666;
-    }
-
-    .success-story-content .name {
-      font-weight: 600;
-      color: #2c3e50;
-    }
-
-    /* Self Esteem Section */
-    .self-esteem-section {
-      background: #1a1a1a;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .self-esteem-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 2rem;
-    }
-
-    .self-esteem-section p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* How It Works Section */
-    .how-it-works-section {
-      background: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .how-it-works-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
-      color: #2c3e50;
-    }
-
-    .how-it-works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .how-it-works-card {
-      padding: 2rem;
-      border-radius: 12px;
-      background: #f8f9fa;
-      transition: transform 0.3s ease;
-    }
-
-    .how-it-works-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .how-it-works-card iconify-icon {
-      font-size: 3rem;
-      color: #667eea;
-      margin-bottom: 1rem;
-    }
-
-    .how-it-works-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: #2c3e50;
-    }
-
-    .how-it-works-card p {
-      color: #666;
-    }
-
-    /* Guarantee and Bonus Section */
-    .guarantee-bonus-section {
-      background: #1a1a1a;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .guarantee-bonus-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
-    }
-
-    .guarantee-bonus-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .guarantee-card, .bonus-card {
-      background: rgba(255,255,255,0.1);
-      padding: 2rem;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-    }
-
-    .guarantee-card:hover, .bonus-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.15);
-    }
-
-    .guarantee-card iconify-icon, .bonus-card iconify-icon {
-      font-size: 3rem;
-      color: #fa9f08;
-      margin-bottom: 1rem;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      background: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .faq-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 3rem;
-      color: #2c3e50;
-    }
-
-    .faq-grid {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      margin-bottom: 1rem;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      padding: 1.5rem;
-      background: #f8f9fa;
-      border: none;
-      text-align: left;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .faq-question:hover {
-      background: #e9ecef;
-    }
-
-    .faq-answer {
-      padding: 1.5rem;
-      background: white;
-      display: none;
-    }
-
-    .faq-answer p {
-      margin: 0;
-      color: #666;
-    }
-
-    /* Final CTA Section */
-    .final-cta {
-      background: #1a1a1a;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .final-cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 2rem;
-    }
-
-    .countdown {
-      font-size: 1.2rem;
-      color: #fa9f08;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      backdrop-filter: blur(5px);
-    }
-
-    .modal.show {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 500px;
-      width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #999;
-    }
-
-    .modal-close:hover {
-      color: #333;
-    }
-
-    .progress-bar {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .progress-step {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .progress-step.active {
-      background: #667eea;
-      color: white;
-    }
-
-    .modal-step {
-      display: none;
-      text-align: center;
-    }
-
-    .modal-step.active {
-      display: block;
-    }
-
-    .modal-step h2 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 1.5rem;
-      color: #2c3e50;
-    }
-
-    .modal-step input {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .modal-step input:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-
-    .modal-step button {
-      background: #667eea;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin: 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .modal-step button:hover {
-      background: #5a6fd8;
-    }
-
-    .modal-step button.back {
-      background: #6c757d;
-    }
-
-    .modal-step button.back:hover {
-      background: #5a6268;
-    }
-
-    .success-message {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .success-message iconify-icon {
-      font-size: 4rem;
-      color: #27ae60;
-      margin-bottom: 1rem;
-    }
-
-    /* Sticky CTA */
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(45deg, #fa9f08, #ee5a24);
-      color: white;
-      padding: 1rem;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      z-index: 100;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-    }
-
-    .countdown-timer {
-      background: rgba(255,255,255,0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-family: monospace;
-    }
-
-    /* Limited Vagas Badge */
-    .limited-vagas {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #fa9f08;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      z-index: 100;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* Students Counter */
-    .students-counter {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: #27ae60;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      z-index: 100;
-    }
-
-    /* Footer */
-    footer {
-      background: #2c3e50;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    footer p {
-      margin-bottom: 0.5rem;
-      line-height: 1.8;
-    }
-
-    footer a {
-      color: #3498db;
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .site-secure {
-      color: #27ae60;
-      font-weight: 600;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .success-story-card {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .success-story-content {
-        text-align: center;
-      }
-
-      .limited-vagas, .students-counter {
-        position: static;
-        display: inline-block;
-        margin: 0.5rem;
-      }
-
-      .sticky-cta {
-        font-size: 0.9rem;
-        padding: 0.8rem;
-      }
-
-      .countdown-timer {
-        font-size: 0.8rem;
-      }
-    }
+.hero-logo {
+  position: absolute;
+  top: 2rem;       /* Posição vertical (ajuste conforme necessário) */
+  left: 2rem;      /* Posição horizontal (ajuste conforme necessário) */
+  width: 180px;    /* Largura da logo (ajuste conforme sua imagem) */
+  height: auto;    /* Mantém a proporção */
+  z-index: 10;     /* Fica acima do overlay (que tem z-index: 1) */
+  filter: none;    /* Remove efeitos de escurecimento */
+  opacity: 1;      /* Garante 100% de visibilidade */
+  object-fit: contain; /* Mantém a qualidade da imagem */
+}
   </style>
 </head>
 
 <body>
- <!-- Hero Section -->
-<section class="hero-section" role="banner" id="hero-section" data-aos="fade-up" style="margin-bottom: 0;">
-  <div class="hero-content">
-    <h1>Você merece dias mais produtivos e leves. Que tal começar agora?</h1>
-    <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
-      <iconify-icon icon="lucide:download"></iconify-icon>
-      Baixar Guia Agora
-    </button>
-    <span class="delivery-note">Envio imediato no seu e-mail</span>
-  </div>
-  
-</section>
-
-<!-- Separador SVG -->
-
- 
-
-
-  <!-- Separator SVG -->
-
+  <!-- Hero Section -->
+  <section class="hero-section" role="banner" id="hero-section" data-aos="fade-up">
+    <div class="hero-content">
+      <h1 class="hero-title">Você merece dias mais produtivos e leves. Que tal começar agora?</h1>
+      <p class="hero-subtitle">Descubra práticas simples que cabem na sua rotina e transformam seu dia a dia</p>
+      <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
+        <iconify-icon icon="lucide:download"></iconify-icon>
+        Baixar Guia Agora
+      </button>
+      <span class="delivery-note">✨ Envio imediato no seu e-mail</span>
+    </div>
+  </section>
 
   <!-- Form Section -->
-  <section class="form-section" role="region" aria-labelledby="form-heading" id="form-section" data-aos="fade-up-right">
-    <div class="form-wrapper">
-      <h2>Descubra o primeiro passo para transformar seus dias.</h2>
-      <p>Preencha o formulário abaixo e receba o guia gratuito diretamente no seu e-mail.</p>
-      <div class="urgency-note">
-        <span>⚠️ Esse formulário disponível apenas nas próximas 48h.</span>
+  <section class="form-section" role="region" aria-labelledby="form-heading" id="form-section" data-aos="fade-up">
+    <div class="form-container">
+      <div class="form-card">
+        <h2 class="form-title" id="form-heading">Descubra o primeiro passo para transformar seus dias.</h2>
+        <p class="form-subtitle">Preencha o formulário abaixo e receba o guia gratuito diretamente no seu e-mail.</p>
+        
+        <div class="urgency-banner">
+          <iconify-icon icon="lucide:clock"></iconify-icon>
+          <span>⚠️ Esse formulário disponível apenas nas próximas 48h.</span>
+        </div>
+        
+        <div class="mini-faq">
+          <h3>✨ Respostas rápidas</h3>
+          <div class="faq-item">
+            <strong>É gratuito?</strong>
+            <span>Sim, 100% gratuito!</span>
+          </div>
+          <div class="faq-item">
+            <strong>Quanto tempo leva?</strong>
+            <span>Apenas 5 minutos por dia.</span>
+          </div>
+          <div class="faq-item">
+            <strong>Funciona pra mim?</strong>
+            <span>Sim, mesmo com rotina agitada!</span>
+          </div>
+        </div>
+        
+        <form class="modern-form" onsubmit="event.preventDefault(); openModal();">
+          <input type="text" id="form-name" class="modern-input" placeholder="Seu Nome" required aria-label="Seu Nome" />
+          <input type="tel" id="form-phone" class="modern-input" placeholder="Seu Telefone" required aria-label="Seu telefone" />
+          <input type="email" id="form-email" class="modern-input" placeholder="Seu E-mail" required aria-label="Seu E-mail" />
+          <button type="submit" class="submit-button">
+            Quero Meu Guia
+          </button>
+        </form>
       </div>
-      
-      <!-- Mini FAQ -->
-      <div class="mini-faq">
-        <h3>Respostas rápidas</h3>
-        <div class="mini-faq-item">
-          <p><strong>É gratuito?</strong> Sim, 100% gratuito!</p>
-        </div>
-        <hr>
-        <div class="mini-faq-item">
-          <p><strong>Quanto tempo leva?</strong> Apenas 5 minutos por dia.</p>
-        </div>
-         <hr>
-        <div class="mini-faq-item">
-          <p><strong>Funciona pra mim?</strong> Sim, mesmo com rotina agitada!</p>
-        </div>
-      </div>
-      
-      <form>
-        <input type="text" id="form-name" placeholder="Seu Nome" required aria-label="Seu Nome" />
-        <input type="text" id="form-phone" placeholder="Seu Telefone" required aria-label="Seu telefone" />
-        <input type="email" id="form-email" placeholder="Seu E-mail" required aria-label="Seu E-mail" />
-        <button type="submit" onclick="openModal()">Quero Meu Guia</button>
-      </form>
     </div>
   </section>
-
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#1A1A1A" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
 
   <!-- Main Title Section -->
-  <section class="main-title-section" role="banner" id="main-title-section" data-aos="fade-up">
-    <h1>
-      Uma prática simples que cabe na sua rotina e que contribui pra sua 
-      <span class="highlight">produtividade com clareza e leveza.</span>
-    </h1>
-    <p>A clareza que você procura. Hoje com nosso guia gratuito.</p>
-    <button class="cta-button" aria-label="Baixe o guia gratuito" onclick="openModal()">
-      <iconify-icon icon="lucide:download"></iconify-icon>
-      Quero o Guia Gratuito
-    </button>
-    <span class="delivery-note">Envio imediato no seu e-mail</span>
+  <section class="main-title-section section" role="banner" id="main-title-section" data-aos="fade-up">
+    <div class="main-content">
+      <h1 class="section-title">
+        Uma prática simples que cabe na sua rotina e que contribui pra sua 
+        <span class="highlight">produtividade com clareza e leveza.</span>
+      </h1>
+      <p class="section-subtitle">A clareza que você procura. Hoje com nosso guia gratuito.</p>
+      <button class="cta-button" aria-label="Baixe o guia gratuito" onclick="openModal()">
+        <iconify-icon icon="lucide:download"></iconify-icon>
+        Quero o Guia Gratuito
+      </button>
+      <span class="delivery-note">✨ Envio imediato no seu e-mail</span>
+    </div>
   </section>
-
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#FFF" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
 
   <!-- About Section -->
-  <section class="about-section" role="region" aria-labelledby="about-heading" data-aos="fade-up">
+  <section class="about-section section" role="region" aria-labelledby="about-heading" data-aos="fade-up">
     <div class="about-content">
-      <h2 id="about-heading">Sobre Nossa Metodologia</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2 class="section-title" id="about-heading">Sobre Nossa Metodologia</h2>
+      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="about-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
   </section>
-
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#1A1A1A" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
 
   <!-- Testimonials Section -->
-  <section class="testimonials-section" role="region" aria-labelledby="testimonials-heading" data-aos="fade-up-left">
-    <h2 id="testimonials-heading">O que nossas alunas dizem</h2>
+  <section class="testimonials-section section" role="region" aria-labelledby="testimonials-heading" data-aos="fade-up">
+    <h2 class="section-title" id="testimonials-heading">O que nossas alunas dizem</h2>
     <div class="testimonials-grid">
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Foto de Ana" />
-        <p>"Consegui organizar minha rotina e me sinto mais confiante em apenas 21 dias!"</p>
-        <p class="name">Ana Silva, São Paulo</p>
-        <div class="proof">
-         
-          <span class="verified">✔️ Validado</span>
-        </div>
+        <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Foto de Ana" class="testimonial-avatar" />
+        <p class="testimonial-text">"Consegui organizar minha rotina e me sinto mais confiante em apenas 21 dias!"</p>
+        <p class="testimonial-author">Ana Silva</p>
+        <p class="testimonial-location">São Paulo</p>
+        <p class="testimonial-verified">✔️ Validado</p>
       </div>
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5oL7K83xXWYKqIx_tHaM26AZ-j97k0LvRg&s" alt="Foto de Maria" />
-        <p>"O guia mudou minha energia diária. Agora acordo com mais disposição!"</p>
-        <p class="name">Maria Oliveira, Rio de Janeiro</p>
-        <div class="proof">
-          <span class="verified">✔️ Validado</span>
-        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5oL7K83xXWYKqIx_tHaM26AZ-j97k0LvRg&s" alt="Foto de Maria" class="testimonial-avatar" />
+        <p class="testimonial-text">"O guia mudou minha energia diária. Agora acordo com mais disposição!"</p>
+        <p class="testimonial-author">Maria Oliveira</p>
+        <p class="testimonial-location">Rio de Janeiro</p>
+        <p class="testimonial-verified">✔️ Validado</p>
       </div>
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://st.depositphotos.com/3821041/55680/i/450/depositphotos_556805846-stock-photo-brunette-teenager-girl-model-posing.jpg" alt="Foto de Maria" />
-
-        <p>"Nunca imaginei que 5 minutos por dia fariam tanta diferença na minha vida."</p>
-        <p class="name">Joana Costa, Belo Horizonte</p>
-        <div class="proof">
-          <span class="verified">✔️ Validado</span>
-        </div>
+        <img src="https://st.depositphotos.com/3821041/55680/i/450/depositphotos_556805846-stock-photo-brunette-teenager-girl-model-posing.jpg" alt="Foto de Joana" class="testimonial-avatar" />
+        <p class="testimonial-text">"Nunca imaginei que 5 minutos por dia fariam tanta diferença na minha vida."</p>
+        <p class="testimonial-author">Joana Costa</p>
+        <p class="testimonial-location">Belo Horizonte</p>
+        <p class="testimonial-verified">✔️ Validado</p>
       </div>
     </div>
   </section>
 
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#1A1A1A" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
-
   <!-- Benefits Section -->
-  <section class="benefits-section" role="region" aria-labelledby="benefits-heading" data-aos="zoom-in">
-    <h2 id="benefits-heading">Em apenas 5 minutos por dia você vai:</h2>
+  <section class="benefits-section section" role="region" aria-labelledby="benefits-heading" data-aos="fade-up">
+    <h2 class="section-title" id="benefits-heading">Em apenas 5 minutos por dia você vai:</h2>
     <div class="benefits-grid">
       <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="100">
         <div class="skeleton skeleton-icon"></div>
         <div class="skeleton skeleton-text"></div>
         <div class="skeleton skeleton-text short"></div>
         <div class="content">
-          <iconify-icon icon="lucide:brain"></iconify-icon>
-          <p>Clareza mental<br><span>para decisões mais assertivas</span></p>
+          <div class="benefit-icon">
+            <iconify-icon icon="lucide:brain"></iconify-icon>
+          </div>
+          <h3 class="benefit-title">Clareza mental</h3>
+          <p class="benefit-subtitle">para decisões mais assertivas</p>
         </div>
       </div>
       <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="200">
@@ -1070,8 +1079,11 @@
         <div class="skeleton skeleton-text"></div>
         <div class="skeleton skeleton-text short"></div>
         <div class="content">
-          <iconify-icon icon="lucide:leaf"></iconify-icon>
-          <p>Reduzir Estresse<br><span>para um dia mais leve</span></p>
+          <div class="benefit-icon">
+            <iconify-icon icon="lucide:leaf"></iconify-icon>
+          </div>
+          <h3 class="benefit-title">Reduzir Estresse</h3>
+          <p class="benefit-subtitle">para um dia mais leve</p>
         </div>
       </div>
       <div class="benefit-card skeleton-card" data-aos="fade-up" data-aos-delay="300">
@@ -1079,136 +1091,139 @@
         <div class="skeleton skeleton-text"></div>
         <div class="skeleton skeleton-text short"></div>
         <div class="content">
-          <iconify-icon icon="lucide:clock"></iconify-icon>
-          <p>Mais Produtividade<br><span>sem esforço desnecessário</span></p>
+          <div class="benefit-icon">
+            <iconify-icon icon="lucide:clock"></iconify-icon>
+          </div>
+          <h3 class="benefit-title">Mais Produtividade</h3>
+          <p class="benefit-subtitle">sem esforço desnecessário</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#FFF" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
-
   <!-- Success Stories Section -->
-<!-- Success Stories Section -->
-<section class="success-stories-section" role="region" aria-labelledby="success-stories-heading" data-aos="fade-up-right" 
-         style="background-color: #f9f9f9; padding: 40px 20px; text-align: center; border-radius: 12px; margin: 40px auto; max-width: 700px;">
-  <h2 id="success-stories-heading" style="font-size: 28px; color: #333; margin-bottom: 16px;">Transformações Reais</h2>
-  <p style="font-size: 20px; font-weight: 500; color: #555; line-height: 1.5;">
-    "Não é mágica. É consistência. Em poucos dias, você começa a sentir a diferença. E ela vem de dentro."
-  </p>
-</section>
-
-
-
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#1A1A1A" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
+  <section class="success-stories-section section" role="region" aria-labelledby="success-stories-heading" data-aos="fade-up">
+    <h2 class="section-title" id="success-stories-heading">Transformações Reais</h2>
+    <div class="success-quote">
+      "Não é mágica. É consistência. Em poucos dias, você começa a sentir a diferença. E ela vem de dentro."
+    </div>
+  </section>
 
   <!-- Self Esteem Section -->
-  <section class="self-esteem-section" role="region" aria-labelledby="self-esteem-heading" data-aos="fade-up">
-    <h2 id="self-esteem-heading">A clareza que você procura tá em ações simples</h2>
-    <p>Descubra 5 passos simples para alavancar sua <span class="highlight">autoestima</span>, <span class="highlight">disposição</span> e <span class="highlight">confiança</span>.</p>
-    <p>Baixe o eBook gratuito com práticas diárias de 21 dias e comece sua transformação agora!</p>
-    <button class="cta-button" aria-label="Garanta seu eBook" onclick="openModal()">
-      <iconify-icon icon="lucide:book-open"></iconify-icon>
-      Garanta seu eBook Gratuito
-    </button>
+  <section class="main-title-section section" role="region" aria-labelledby="self-esteem-heading" data-aos="fade-up">
+    <div class="main-content">
+      <h2 class="section-title" id="self-esteem-heading">A clareza que você procura tá em ações simples</h2>
+      <p class="section-subtitle">Descubra 5 passos simples para alavancar sua <span class="highlight">autoestima</span>, <span class="highlight">disposição</span> e <span class="highlight">confiança</span>.</p>
+      <p style="margin-bottom: 2rem; opacity: 0.9;">Baixe o eBook gratuito com práticas diárias de 21 dias e comece sua transformação agora!</p>
+      <button class="cta-button" aria-label="Garanta seu eBook" onclick="openModal()">
+        <iconify-icon icon="lucide:book-open"></iconify-icon>
+        Garanta seu eBook Gratuito
+      </button>
+    </div>
   </section>
-
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#FFF" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
 
   <!-- How It Works Section -->
-  <section class="how-it-works-section" role="region" aria-labelledby="how-it-works-heading" data-aos="fade-up-left">
-    <h2 id="how-it-works-heading">Como Funciona</h2>
-    <div class="how-it-works-grid">
-      <div class="how-it-works-card" data-aos="fade-up" data-aos-delay="100">
-        <iconify-icon icon="lucide:user-plus"></iconify-icon>
-        <h3>Passo 1: Inscreva-se</h3>
-        <p>Preencha o formulário em 30 segundos.</p>
+  <section class="how-it-works-section section" role="region" aria-labelledby="how-it-works-heading" data-aos="fade-up">
+    <h2 class="section-title" id="how-it-works-heading">Como Funciona</h2>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Inscreva-se</h3>
+        <p class="step-description">Preencha o formulário em 30 segundos.</p>
       </div>
-      <div class="how-it-works-card" data-aos="fade-up" data-aos-delay="200">
-        <iconify-icon icon="lucide:mail"></iconify-icon>
-        <h3>Passo 2: Receba o Guia</h3>
-        <p>Seu eBook chega no e-mail em minutos.</p>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Receba o Guia</h3>
+        <p class="step-description">Seu eBook chega no e-mail em minutos.</p>
       </div>
-      <div class="how-it-works-card" data-aos="fade-up" data-aos-delay="300">
-        <iconify-icon icon="lucide:check-circle"></iconify-icon>
-        <h3>Passo 3: Aplique as Práticas</h3>
-        <p>5 minutos por dia para transformar sua rotina.</p>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Aplique as Práticas</h3>
+        <p class="step-description">5 minutos por dia para transformar sua rotina.</p>
       </div>
     </div>
   </section>
 
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#1A1A1A" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
-
-  <!-- Guarantee and Bonus Section -->
-  <section class="benefits-section" role="region" aria-labelledby="benefits-heading" data-aos="zoom-in">
-    <h2 id="benefits-heading">Benefícios</h2>
+  <!-- Benefits Section (Additional) -->
+  <section class="benefits-section section" role="region" aria-labelledby="benefits-heading-2" data-aos="fade-up">
+    <h2 class="section-title" id="benefits-heading-2">Benefícios</h2>
     <div class="benefits-grid">
       <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-        <iconify-icon icon="lucide:zap"></iconify-icon>
-        <p><strong>5 minutos por dia</strong><br>Métodos rápidos para rotinas intensas</p>
+        <div class="benefit-icon">
+          <iconify-icon icon="lucide:zap"></iconify-icon>
+        </div>
+        <h3 class="benefit-title">5 minutos por dia</h3>
+        <p class="benefit-subtitle">Métodos rápidos para rotinas intensas</p>
       </div>
       <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-        <iconify-icon icon="lucide:sparkles"></iconify-icon>
-        <p><strong>Clareza mental</strong><br>Reduza a névoa e ganhe foco</p>
+        <div class="benefit-icon">
+          <iconify-icon icon="lucide:sparkles"></iconify-icon>
+        </div>
+        <h3 class="benefit-title">Clareza mental</h3>
+        <p class="benefit-subtitle">Reduza a névoa e ganhe foco</p>
       </div>
       <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-        <iconify-icon icon="lucide:heart"></iconify-icon>
-        <p><strong>Mais autoestima</strong><br>Exercícios para sua confiança</p>
+        <div class="benefit-icon">
+          <iconify-icon icon="lucide:heart"></iconify-icon>
+        </div>
+        <h3 class="benefit-title">Mais autoestima</h3>
+        <p class="benefit-subtitle">Exercícios para sua confiança</p>
       </div>
       <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
-        <iconify-icon icon="lucide:clock"></iconify-icon>
-        <p><strong>Produtividade real</strong><br>Adaptado ao seu ritmo</p>
+        <div class="benefit-icon">
+          <iconify-icon icon="lucide:target"></iconify-icon>
+        </div>
+        <h3 class="benefit-title">Produtividade real</h3>
+        <p class="benefit-subtitle">Adaptado ao seu ritmo</p>
       </div>
     </div>
-</section>
-
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#FFF" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
+  </section>
 
   <!-- FAQ Section -->
-  <section class="faq-section" role="region" aria-labelledby="faq-heading" data-aos="fade-up-right">
-    <h2 id="faq-heading">Perguntas Frequentes</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">O que é o Guia de 21 Dias?</button>
+  <section class="faq-section section" role="region" aria-labelledby="faq-heading" data-aos="fade-up">
+    <h2 class="section-title" id="faq-heading">Perguntas Frequentes</h2>
+    <div class="faq-container">
+      <div class="faq-item-main">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span>O que é o Guia de 21 Dias?</span>
+          <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+        </button>
         <div class="faq-answer">
           <p>Um eBook com práticas diárias de 5 minutos para melhorar sua autoestima e energia.</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">É realmente gratuito?</button>
+      <div class="faq-item-main">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span>É realmente gratuito?</span>
+          <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+        </button>
         <div class="faq-answer">
           <p>Sim, 100% gratuito. Sem taxas escondidas.</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Quanto tempo leva para ver resultados?</button>
+      <div class="faq-item-main">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span>Quanto tempo leva para ver resultados?</span>
+          <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+        </button>
         <div class="faq-answer">
           <p>Muitas alunas sentem diferença em poucos dias!</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Preciso de experiência prévia?</button>
+      <div class="faq-item-main">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span>Preciso de experiência prévia?</span>
+          <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+        </button>
         <div class="faq-answer">
           <p>Não! O guia foi criado para iniciantes e é super fácil de seguir.</p>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Como recebo o material?</button>
+      <div class="faq-item-main">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <span>Como recebo o material?</span>
+          <iconify-icon icon="lucide:chevron-down"></iconify-icon>
+        </button>
         <div class="faq-answer">
           <p>Após o cadastro, você recebe tudo por e-mail em poucos minutos.</p>
         </div>
@@ -1216,98 +1231,142 @@
     </div>
   </section>
 
-  <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#1A1A1A" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
-
   <!-- Final CTA Section -->
-  <section class="final-cta" role="region" aria-labelledby="cta-heading" data-aos="fade-up">
-    <h2 id="cta-heading">Desbloqueie sua transformação agora</h2>
-    <p class="countdown">
-      <iconify-icon icon="lucide:clock"></iconify-icon>
-      Disponível gratuitamente por tempo limitado!
-    </p>
-    <p>21 dias, 5 minutos por dia. Seu guia gratuito está a um clique.</p>
-    <button class="cta-button" aria-label="Desbloquear o guia" onclick="openModal()">
-      <iconify-icon icon="lucide:rocket"></iconify-icon>
-      Quero desbloquear o Guia de 21 Dias
-    </button>
-    <span class="delivery-note">Envio imediato, direto no seu e-mail</span>
+  <section class="final-cta-section section" role="region" aria-labelledby="cta-heading" data-aos="fade-up">
+    <div class="cta-content">
+      <h2 class="section-title" id="cta-heading">Desbloqueie sua transformação agora</h2>
+      <div class="countdown-display">
+        <p class="countdown-text">
+          <iconify-icon icon="lucide:clock"></iconify-icon>
+          Disponível gratuitamente por tempo limitado!
+        </p>
+        <div class="countdown-timer" id="countdown-display">02:00:00:00</div>
+      </div>
+      <p style="margin-bottom: 2rem; opacity: 0.9;">21 dias, 5 minutos por dia. Seu guia gratuito está a um clique.</p>
+      <button class="cta-button" aria-label="Desbloquear o guia" onclick="openModal()">
+        <iconify-icon icon="lucide:rocket"></iconify-icon>
+        Quero desbloquear o Guia de 21 Dias
+      </button>
+      <span class="delivery-note">✨ Envio imediato, direto no seu e-mail</span>
+    </div>
   </section>
 
   <!-- Modal -->
-  <div class="modal" id="form-modal">
+  <div class="modal" id="form-modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeModal()">×</span>
-      <div class="progress-bar">
-        <div class="progress-step active" id="step-1">1</div>
-        <div class="progress-step" id="step-2">2</div>
-        <div class="progress-step" id="step-3">3</div>
-      </div>
-      <div class="modal-step active" id="modal-step-1">
-        <h2>Como devemos te chamar nesse recomeço?</h2>
-        <input type="text" id="name" placeholder="Seu Nome" required aria-label="Seu Nome" />
-        <button onclick="nextStep(1)">Próximo</button>
-      </div>
-      <div class="modal-step" id="modal-step-2">
-        <h2>Te envio o guia no e-mail que você mais usa, tá bom?</h2>
-        <input type="email" id="email" placeholder="Seu E-mail" required aria-label="Seu E-mail" />
-        <button class="back" onclick="prevStep(2)">Voltar</button>
-        <button onclick="nextStep(2)">Próximo</button>
-      </div>
-      <div class="modal-step" id="modal-step-3">
-        <h2>Me manda seu WhatsApp (sem spam, é só se der erro no envio).</h2>
-        <input type="text" id="whatsapp" placeholder="Seu WhatsApp" required aria-label="Seu WhatsApp" />
-        <p><a href="https://wa.me/5511999999999" target="_blank">Prefere receber no WhatsApp? Clique aqui.</a></p>
-        <button class="back" onclick="prevStep(3)">Voltar</button>
-        <button onclick="submitForm()">Quero desbloquear meu recomeço!</button>
-      </div>
-      <div class="modal-step" id="modal-step-success">
-        <div class="success-message">
-          <iconify-icon icon="lucide:check-circle"></iconify-icon>
-          <p>Parabéns! Você receberá no seu e-mail o seu guia gratuito!</p>
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal()" aria-label="Fechar modal">
+          <iconify-icon icon="lucide:x"></iconify-icon>
+        </button>
+        <h2 id="modal-title">Seu Guia Gratuito</h2>
+        <div class="progress-bar">
+          <div class="progress-step active" id="step-1">1</div>
+          <div class="progress-step" id="step-2">2</div>
+          <div class="progress-step" id="step-3">3</div>
         </div>
-        <button onclick="closeModal()">Fechar</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-step active" id="modal-step-1">
+          <h3 class="modal-title">Como devemos te chamar nesse recomeço?</h3>
+          <input type="text" id="name" class="modal-input" placeholder="Seu Nome" required />
+          <div class="modal-buttons">
+            <button class="modal-button primary" onclick="nextStep(1)">Próximo</button>
+          </div>
+        </div>
+        <div class="modal-step" id="modal-step-2">
+          <h3 class="modal-title">Te envio o guia no e-mail que você mais usa, tá bom?</h3>
+          <input type="email" id="email" class="modal-input" placeholder="Seu E-mail" required />
+          <div class="modal-buttons">
+            <button class="modal-button secondary" onclick="prevStep(2)">Voltar</button>
+            <button class="modal-button primary" onclick="nextStep(2)">Próximo</button>
+          </div>
+        </div>
+        <div class="modal-step" id="modal-step-3">
+          <h3 class="modal-title">Me manda seu WhatsApp (sem spam, é só se der erro no envio).</h3>
+          <input type="tel" id="whatsapp" class="modal-input" placeholder="Seu WhatsApp" required />
+          <p style="margin: 1rem 0; color: var(--text-light);">
+            <a href="https://wa.me/5511999999999" target="_blank" style="color: var(--primary-color);">Prefere receber no WhatsApp? Clique aqui.</a>
+          </p>
+          <div class="modal-buttons">
+            <button class="modal-button secondary" onclick="prevStep(3)">Voltar</button>
+            <button class="modal-button primary" onclick="submitForm()">Quero desbloquear meu recomeço!</button>
+          </div>
+        </div>
+        <div class="modal-step" id="modal-step-success">
+          <div class="success-message">
+            <div class="success-icon">
+              <iconify-icon icon="lucide:check-circle"></iconify-icon>
+            </div>
+            <h3 style="margin-bottom: 1rem;">Parabéns! 🎉</h3>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Você receberá no seu e-mail o seu guia gratuito em alguns minutos!</p>
+            <button class="modal-button primary" onclick="closeModal()">Fechar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Sticky CTA -->
   <div class="sticky-cta" id="sticky-cta" onclick="openModal()">
-    <iconify-icon icon="lucide:rocket"></iconify-icon>
-    Baixe o Guia de 21 Dias Agora
-    <span class="countdown-timer" id="countdown-timer">02:00:00:00</span>
+    <div class="sticky-cta-content">
+      <iconify-icon icon="lucide:rocket"></iconify-icon>
+      <span>Baixe o Guia de 21 Dias Agora</span>
+    </div>
+    <div class="sticky-countdown" id="countdown-timer">02:00:00:00</div>
   </div>
 
-
   <!-- Footer -->
-  <footer role="contentinfo" data-aos="fade-up">
-    <p>
-      <iconify-icon icon="lucide:heart"></iconify-icon>
-      Feito com propósito para mulheres que querem recomeçar com leveza
-      <br>
-      <span>Esse guia não substitui acompanhamento profissional.</span>
-      <br>
-      <a href="#" aria-label="Política de Privacidade"><iconify-icon icon="lucide:shield-check"></iconify-icon>Política de Privacidade</a> |
-      <a href="#about-heading" aria-label="Sobre Nós"><iconify-icon icon="lucide:user-round"></iconify-icon>Sobre</a> |
-      <a href="mailto:contato@exemplo.com" aria-label="Contato"><iconify-icon icon="lucide:mail"></iconify-icon>Contato: vasconcelosdgt@gmail.com</a> |
-      <a href="https://instagram.com" aria-label="Instagram"><iconify-icon icon="lucide:instagram"></iconify-icon>Instagram</a> |
-      <a href="https://facebook.com" aria-label="Facebook"><iconify-icon icon="lucide:facebook"></iconify-icon>Facebook</a>
-      <br>
-      <span class="site-secure"><iconify-icon icon="lucide:shield-check"></iconify-icon> Site Seguro</span>
-      <br>
-      Desenvolvido por <a href="https://eitadevis.vercel.app">Eita Devis</a>
-    </p>
+  <footer class="footer" role="contentinfo" data-aos="fade-up">
+    <div class="footer-content">
+      <p class="footer-text">
+        <iconify-icon icon="lucide:heart"></iconify-icon>
+        Feito com propósito para mulheres que querem recomeçar com leveza
+      </p>
+      <p class="footer-text">Esse guia não substitui acompanhamento profissional.</p>
+      
+      <div class="footer-links">
+        <a href="#" class="footer-link">
+          <iconify-icon icon="lucide:shield-check"></iconify-icon>
+          Política de Privacidade
+        </a>
+        <a href="#about-heading" class="footer-link">
+          <iconify-icon icon="lucide:user-round"></iconify-icon>
+          Sobre
+        </a>
+        <a href="mailto:vasconcelosdgt@gmail.com" class="footer-link">
+          <iconify-icon icon="lucide:mail"></iconify-icon>
+          vasconcelosdgt@gmail.com
+        </a>
+        <a href="https://instagram.com" class="footer-link" target="_blank">
+          <iconify-icon icon="lucide:instagram"></iconify-icon>
+          Instagram
+        </a>
+        <a href="https://facebook.com" class="footer-link" target="_blank">
+          <iconify-icon icon="lucide:facebook"></iconify-icon>
+          Facebook
+        </a>
+      </div>
+      
+      <div class="footer-badge">
+        <iconify-icon icon="lucide:shield-check"></iconify-icon>
+        Site Seguro
+      </div>
+      
+      <p class="footer-text" style="color:#fa9f08" !important>
+        Desenvolvido por <a href="https://eitadevis.vercel.app" target="_blank" style="color: rgba(255,255,255,0.9);">Eita Devis</a>
+      </p>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     // Initialize AOS
     if (typeof AOS !== 'undefined') {
-      AOS.init({ duration: 800, once: true });
-    } else {
-      console.warn('AOS library not loaded.');
+      AOS.init({ 
+        duration: 600, 
+        once: true,
+        offset: 50
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -1318,15 +1377,28 @@
         });
       }, 1500);
 
-      // Sticky CTA Show on Scroll
+      // Sticky CTA functionality
       const stickyCta = document.getElementById('sticky-cta');
+      let lastScrollY = window.scrollY;
+      
       window.addEventListener('scroll', () => {
-        stickyCta.style.display = window.scrollY > 200 ? 'flex' : 'none';
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 300) {
+          stickyCta.style.display = 'flex';
+        } else {
+          stickyCta.style.display = 'none';
+        }
+        
+        lastScrollY = currentScrollY;
       });
 
       // Countdown Timer
-      const countdownElement = document.getElementById('countdown-timer');
-      let timeLeft = 48 * 60 * 60; // 48 hours in seconds
+      const countdownElements = [
+        document.getElementById('countdown-timer'),
+        document.getElementById('countdown-display')
+      ];
+      let timeLeft = 48 * 60 * 60;
 
       function updateCountdown() {
         const days = Math.floor(timeLeft / (60 * 60 * 24));
@@ -1334,130 +1406,165 @@
         const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
         const seconds = timeLeft % 60;
 
-        countdownElement.textContent = `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        const timeString = `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        countdownElements.forEach(el => {
+          if (el) el.textContent = timeString;
+        });
         
         timeLeft--;
-        if (timeLeft < 0) timeLeft = 48 * 60 * 60; // Reset countdown
+        if (timeLeft < 0) timeLeft = 48 * 60 * 60;
       }
 
       setInterval(updateCountdown, 1000);
+      updateCountdown();
 
       // FAQ Toggle
       window.toggleFAQ = function(element) {
         const answer = element.nextElementSibling;
+        const icon = element.querySelector('iconify-icon');
         const isOpen = answer.style.display === 'block';
         
         // Close all other FAQs
-        document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+        document.querySelectorAll('.faq-answer').forEach(ans => {
+          ans.style.display = 'none';
+        });
+        document.querySelectorAll('.faq-question').forEach(btn => {
+          btn.setAttribute('aria-expanded', 'false');
+          const btnIcon = btn.querySelector('iconify-icon');
+          if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
+        });
         
         // Toggle current FAQ
-        answer.style.display = isOpen ? 'none' : 'block';
+        if (!isOpen) {
+          answer.style.display = 'block';
+          element.setAttribute('aria-expanded', 'true');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
       };
 
-      // Add conversion tracking
+      // Conversion tracking
       window.trackConversion = function(action) {
-        // Add your conversion tracking code here
         console.log('Conversion tracked:', action);
-        
-        // Example: Google Analytics event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {
-            'event_category': 'Lead Generation',
-            'event_label': action
-          });
-        }
-        
-        // Example: Facebook Pixel
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'Lead');
-        }
       };
+
+      // Phone formatting
+      const phoneInputs = [
+        document.getElementById('form-phone'),
+        document.getElementById('whatsapp')
+      ];
+
+      phoneInputs.forEach(input => {
+        if (input) {
+          input.addEventListener('input', () => formatPhone(input));
+        }
+      });
     });
 
-    // Smooth scroll functions
+    // Smooth scroll
     function scrollToForm() {
-      document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
-      trackConversion('scroll_to_form');
-    }
-
-    function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+      const formSection = document.getElementById('form-section');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth' });
+        trackConversion('scroll_to_form');
+      }
     }
 
     // Modal functions
     function openModal() {
-      document.getElementById('form-modal').classList.add('show');
+      const modal = document.getElementById('form-modal');
+      const firstInput = document.getElementById('name');
+      
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      
+      // Reset modal state
+      document.querySelectorAll('.modal-step').forEach(step => step.classList.remove('active'));
+      document.querySelectorAll('.progress-step').forEach(step => step.classList.remove('active'));
+      
       document.getElementById('modal-step-1').classList.add('active');
       document.getElementById('step-1').classList.add('active');
       
       // Clear form fields
-      document.getElementById('name').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('whatsapp').value = '';
+      ['name', 'email', 'whatsapp'].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) input.value = '';
+      });
       
+      setTimeout(() => {
+        if (firstInput) firstInput.focus();
+      }, 100);
+      
+      document.body.style.overflow = 'hidden';
       trackConversion('modal_opened');
     }
 
     function closeModal() {
-      document.getElementById('form-modal').classList.remove('show');
-      document.querySelectorAll('.modal-step').forEach(step => step.classList.remove('active'));
-      document.querySelectorAll('.progress-step').forEach(step => step.classList.remove('active'));
+      const modal = document.getElementById('form-modal');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
 
     function nextStep(currentStep) {
-      const steps = document.querySelectorAll('.modal-step');
-      const progressSteps = document.querySelectorAll('.progress-step');
-      const inputs = [document.getElementById('name'), document.getElementById('email'), document.getElementById('whatsapp')];
+      const inputs = [
+        document.getElementById('name'), 
+        document.getElementById('email'), 
+        document.getElementById('whatsapp')
+      ];
 
-      // Validate current input
-      if (!inputs[currentStep - 1].value.trim()) {
+      const currentInput = inputs[currentStep - 1];
+      if (!currentInput || !currentInput.value.trim()) {
         alert('Por favor, preencha o campo antes de continuar.');
+        currentInput?.focus();
         return;
       }
 
-      // Email validation
       if (currentStep === 2) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(inputs[1].value)) {
           alert('Por favor, insira um e-mail válido.');
+          inputs[1].focus();
           return;
         }
       }
 
-      // Phone validation
       if (currentStep === 3) {
-        const phoneRegex = /^[\d\s$$$$\-\+]+$/;
-        if (!phoneRegex.test(inputs[2].value) || inputs[2].value.length < 10) {
+        const phoneValue = inputs[2].value.replace(/\D/g, '');
+        if (phoneValue.length < 10) {
           alert('Por favor, insira um número de WhatsApp válido.');
+          inputs[2].focus();
           return;
         }
       }
 
-      // Move to next step
-      steps[currentStep - 1].classList.remove('active');
-      steps[currentStep].classList.add('active');
-      progressSteps[currentStep - 1].classList.remove('active');
-      progressSteps[currentStep].classList.add('active');
+      document.getElementById(`modal-step-${currentStep}`).classList.remove('active');
+      document.getElementById(`modal-step-${currentStep + 1}`).classList.add('active');
+      
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      document.getElementById(`step-${currentStep + 1}`).classList.add('active');
+
+      const nextInput = inputs[currentStep];
+      if (nextInput) {
+        setTimeout(() => nextInput.focus(), 100);
+      }
 
       trackConversion(`step_${currentStep + 1}_reached`);
     }
 
     function prevStep(currentStep) {
-      const steps = document.querySelectorAll('.modal-step');
-      const progressSteps = document.querySelectorAll('.progress-step');
-
-      steps[currentStep - 1].classList.remove('active');
-      steps[currentStep - 2].classList.add('active');
-      progressSteps[currentStep - 1].classList.remove('active');
-      progressSteps[currentStep - 2].classList.add('active');
+      document.getElementById(`modal-step-${currentStep}`).classList.remove('active');
+      document.getElementById(`modal-step-${currentStep - 1}`).classList.add('active');
+      
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      document.getElementById(`step-${currentStep - 1}`).classList.add('active');
     }
 
     async function submitForm() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const name = document.getElementById('name')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const whatsapp = document.getElementById('whatsapp')?.value.trim();
 
-      // Final validation
       if (!name || !email || !whatsapp) {
         alert('Por favor, preencha todos os campos antes de enviar.');
         return;
@@ -1470,61 +1577,59 @@
       }
 
       try {
-        // Show loading state
-        const submitButton = event.target;
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Enviando...';
-        submitButton.disabled = true;
+        const submitButton = event?.target;
+        const originalText = submitButton?.textContent;
+        if (submitButton) {
+          submitButton.textContent = 'Enviando...';
+          submitButton.disabled = true;
+        }
 
-        // Simulate API call (replace with your actual endpoint)
-        const response = await fetch('/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, whatsapp })
-        });
-
-        // For demo purposes, we'll simulate success after 2 seconds
         await new Promise(resolve => setTimeout(resolve, 2000));
 
-        // Show success step
         document.querySelectorAll('.modal-step').forEach(step => step.classList.remove('active'));
         document.getElementById('modal-step-success').classList.add('active');
         document.querySelectorAll('.progress-step').forEach(step => step.classList.remove('active'));
 
-        // Track successful conversion
         trackConversion('form_submitted');
-
-        // Optional: Redirect to thank you page after a delay
-        setTimeout(() => {
-          // window.location.href = '/obrigado.html';
-        }, 3000);
 
       } catch (error) {
         alert('Erro ao enviar. Tente novamente.');
         console.error('Erro:', error);
         
-        // Reset button
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
+        if (submitButton) {
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }
       }
     }
 
-    // Add exit-intent popup
-    let exitIntentShown = false;
-    document.addEventListener('mouseleave', function(e) {
-      if (e.clientY <= 0 && !exitIntentShown) {
-        exitIntentShown = true;
-        openModal();
-        trackConversion('exit_intent_triggered');
+    // Phone formatting function
+    function formatPhone(input) {
+      let value = input.value.replace(/\D/g, '');
+      if (value.length >= 11) {
+        value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+      } else if (value.length >= 7) {
+        value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+      } else if (value.length >= 3) {
+        value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
       }
-    });
+      input.value = value;
+    }
 
-    // Add scroll-based triggers
-    let scrollTriggers = {
-      '25': false,
-      '50': false,
-      '75': false
-    };
+    // Exit-intent popup (desktop only)
+    let exitIntentShown = false;
+    if (window.innerWidth > 768) {
+      document.addEventListener('mouseleave', function(e) {
+        if (e.clientY <= 0 && !exitIntentShown) {
+          exitIntentShown = true;
+          openModal();
+          trackConversion('exit_intent_triggered');
+        }
+      });
+    }
+
+    // Scroll-based triggers
+    let scrollTriggers = { '25': false, '50': false, '75': false };
 
     window.addEventListener('scroll', () => {
       const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
@@ -1537,19 +1642,11 @@
       });
     });
 
-    // Add time-based trigger
-    setTimeout(() => {
-      if (!document.getElementById('form-modal').classList.contains('show')) {
-        trackConversion('time_on_page_30s');
-      }
-    }, 30000);
-
-    // Add page visibility tracking
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        trackConversion('page_hidden');
-      } else {
-        trackConversion('page_visible');
+    // Keyboard navigation for modal
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('form-modal');
+      if (modal && modal.classList.contains('show') && e.key === 'Escape') {
+        closeModal();
       }
     });
   </script>
