@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://your-domain.com" />
   <meta property="og:type" content="website" />
   <title>Guia Gratuito - Clareza e Leveza em 21 Dias</title>
-  <link rel="icon" type="image/png" href="https://your-domain.com/favicon.png" />
+  <link rel="icon" type="image/png" href="img/logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" defer></script>
@@ -32,18 +32,23 @@
     }
 
     /* Hero Section */
-    .hero-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 2rem;
-      position: relative;
-    }
+.hero-section {
+  background-image: url('img/cap.png'); 
+  background-size: cover; /* Faz a imagem preencher toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetições */
+  min-height: 100vh;
+  width: 100vw; /* Garante que ocupe toda a largura da tela */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  position: relative;
+}
+
 
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
@@ -60,7 +65,7 @@
     }
 
     .cta-button {
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      background: linear-gradient(45deg, #fa9f08, #ee5a24);
       color: white;
       border: none;
       padding: 1rem 2rem;
@@ -135,13 +140,15 @@
     }
 
     .urgency-note {
+      
       background: #fff3cd;
       border: 1px solid #ffeaa7;
       border-radius: 8px;
       padding: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       color: #856404;
     }
@@ -222,7 +229,7 @@
     }
 
     .highlight {
-      color: #ff6b6b;
+      color: #fa9f08;
       font-weight: 700;
     }
 
@@ -363,7 +370,7 @@
     .benefit-card iconify-icon {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: #ff6b6b;
+      color: #fa9f08;
     }
 
     .benefit-card p {
@@ -582,7 +589,7 @@
 
     .guarantee-card iconify-icon, .bonus-card iconify-icon {
       font-size: 3rem;
-      color: #ff6b6b;
+      color: #fa9f08;
       margin-bottom: 1rem;
     }
 
@@ -655,7 +662,7 @@
 
     .countdown {
       font-size: 1.2rem;
-      color: #ff6b6b;
+      color: #fa9f08;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
@@ -801,7 +808,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      background: linear-gradient(45deg, #fa9f08, #ee5a24);
       color: white;
       padding: 1rem;
       display: none;
@@ -826,7 +833,7 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #ff6b6b;
+      background: #fa9f08;
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 20px;
@@ -914,36 +921,34 @@
 </head>
 
 <body>
-  <!-- Hero Section -->
-  <section class="hero-section" role="banner" id="hero-section" data-aos="fade-up">
-    <div class="hero-content">
-      <h1>"Em 21 dias, ajudei 3.215 mulheres a recuperarem autoestima e energia."</h1>
-      <p>Descubra como em apenas 5 minutos por dia.</p>
-      <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
-        <iconify-icon icon="lucide:download"></iconify-icon>
-        Baixar Guia Agora
-      </button>
-      <span class="delivery-note">Envio imediato no seu e-mail</span>
-    </div>
-    <div class="scroll-down" onclick="scrollToSection('form-section')">
-      <iconify-icon icon="lucide:chevron-down"></iconify-icon>
-      <p>Rolar para baixo</p>
-    </div>
-  </section>
+ <!-- Hero Section -->
+<section class="hero-section" role="banner" id="hero-section" data-aos="fade-up" style="margin-bottom: 0;">
+  <div class="hero-content">
+    <h1>Você merece dias mais produtivos e leves. Que tal começar agora?</h1>
+    <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
+      <iconify-icon icon="lucide:download"></iconify-icon>
+      Baixar Guia Agora
+    </button>
+    <span class="delivery-note">Envio imediato no seu e-mail</span>
+  </div>
+  
+</section>
+
+<!-- Separador SVG -->
+
+ 
+
 
   <!-- Separator SVG -->
-  <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
-    <path fill="#FFF" d="M0,100 C360,0 1080,0 1440,100 L1440,100 L0,100 Z"></path>
-  </svg>
+
 
   <!-- Form Section -->
   <section class="form-section" role="region" aria-labelledby="form-heading" id="form-section" data-aos="fade-up-right">
     <div class="form-wrapper">
-      <h2>5 minutos por dia. 21 dias. Uma nova versão sua.</h2>
+      <h2>Descubra o primeiro passo para transformar seus dias.</h2>
       <p>Preencha o formulário abaixo e receba o guia gratuito diretamente no seu e-mail.</p>
       <div class="urgency-note">
-        <iconify-icon icon="lucide:alert-triangle"></iconify-icon>
-        <p>⚠️ Esse formulário ficará disponível apenas nas próximas 48h.</p>
+        <span>⚠️ Esse formulário disponível apenas nas próximas 48h.</span>
       </div>
       
       <!-- Mini FAQ -->
@@ -952,9 +957,11 @@
         <div class="mini-faq-item">
           <p><strong>É gratuito?</strong> Sim, 100% gratuito!</p>
         </div>
+        <hr>
         <div class="mini-faq-item">
           <p><strong>Quanto tempo leva?</strong> Apenas 5 minutos por dia.</p>
         </div>
+         <hr>
         <div class="mini-faq-item">
           <p><strong>Funciona pra mim?</strong> Sim, mesmo com rotina agitada!</p>
         </div>
@@ -962,6 +969,7 @@
       
       <form>
         <input type="text" id="form-name" placeholder="Seu Nome" required aria-label="Seu Nome" />
+        <input type="text" id="form-phone" placeholder="Seu Telefone" required aria-label="Seu telefone" />
         <input type="email" id="form-email" placeholder="Seu E-mail" required aria-label="Seu E-mail" />
         <button type="submit" onclick="openModal()">Quero Meu Guia</button>
       </form>
@@ -976,10 +984,10 @@
   <!-- Main Title Section -->
   <section class="main-title-section" role="banner" id="main-title-section" data-aos="fade-up">
     <h1>
-      Se você não fizer por você,
-      <span class="highlight">quem fará?</span>
+      Uma prática simples que cabe na sua rotina e que contribui pra sua 
+      <span class="highlight">produtividade com clareza e leveza.</span>
     </h1>
-    <p>A clareza que você procura tá em ações simples. Comece hoje com nosso guia gratuito.</p>
+    <p>A clareza que você procura. Hoje com nosso guia gratuito.</p>
     <button class="cta-button" aria-label="Baixe o guia gratuito" onclick="openModal()">
       <iconify-icon icon="lucide:download"></iconify-icon>
       Quero o Guia Gratuito
@@ -998,8 +1006,6 @@
       <h2 id="about-heading">Sobre Nossa Metodologia</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
     </div>
   </section>
 
@@ -1013,29 +1019,28 @@
     <h2 id="testimonials-heading">O que nossas alunas dizem</h2>
     <div class="testimonials-grid">
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="/placeholder.svg?height=80&width=80" alt="Foto de Ana" />
+        <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Foto de Ana" />
         <p>"Consegui organizar minha rotina e me sinto mais confiante em apenas 21 dias!"</p>
         <p class="name">Ana Silva, São Paulo</p>
         <div class="proof">
-          <img src="/placeholder.svg?height=40&width=40" alt="Comprovante" />
+         
           <span class="verified">✔️ Validado</span>
         </div>
       </div>
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="/placeholder.svg?height=80&width=80" alt="Foto de Maria" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5oL7K83xXWYKqIx_tHaM26AZ-j97k0LvRg&s" alt="Foto de Maria" />
         <p>"O guia mudou minha energia diária. Agora acordo com mais disposição!"</p>
         <p class="name">Maria Oliveira, Rio de Janeiro</p>
         <div class="proof">
-          <img src="/placeholder.svg?height=40&width=40" alt="Comprovante" />
           <span class="verified">✔️ Validado</span>
         </div>
       </div>
       <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-        <img src="/placeholder.svg?height=80&width=80" alt="Foto de Joana" />
+        <img src="https://st.depositphotos.com/3821041/55680/i/450/depositphotos_556805846-stock-photo-brunette-teenager-girl-model-posing.jpg" alt="Foto de Maria" />
+
         <p>"Nunca imaginei que 5 minutos por dia fariam tanta diferença na minha vida."</p>
         <p class="name">Joana Costa, Belo Horizonte</p>
         <div class="proof">
-          <img src="/placeholder.svg?height=40&width=40" alt="Comprovante" />
           <span class="verified">✔️ Validado</span>
         </div>
       </div>
@@ -1087,17 +1092,16 @@
   </svg>
 
   <!-- Success Stories Section -->
-  <section class="success-stories-section" role="region" aria-labelledby="success-stories-heading" data-aos="fade-up-right">
-    <h2 id="success-stories-heading">Histórias de Sucesso</h2>
-    <div class="success-story-card">
-      <img src="/placeholder.svg?height=150&width=150" alt="Foto de uma aluna" />
-      <div class="success-story-content">
-        <h3>Conheça Ana, que transformou sua rotina</h3>
-        <p>Em 21 dias, Ana encontrou equilíbrio e energia para viver com mais leveza.</p>
-        <p class="name">Ana, 45 anos</p>
-      </div>
-    </div>
-  </section>
+<!-- Success Stories Section -->
+<section class="success-stories-section" role="region" aria-labelledby="success-stories-heading" data-aos="fade-up-right" 
+         style="background-color: #f9f9f9; padding: 40px 20px; text-align: center; border-radius: 12px; margin: 40px auto; max-width: 700px;">
+  <h2 id="success-stories-heading" style="font-size: 28px; color: #333; margin-bottom: 16px;">Transformações Reais</h2>
+  <p style="font-size: 20px; font-weight: 500; color: #555; line-height: 1.5;">
+    "Não é mágica. É consistência. Em poucos dias, você começa a sentir a diferença. E ela vem de dentro."
+  </p>
+</section>
+
+
 
   <!-- Separator SVG -->
   <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -1148,23 +1152,27 @@
   </svg>
 
   <!-- Guarantee and Bonus Section -->
-  <section class="guarantee-bonus-section" role="region" aria-labelledby="guarantee-bonus-heading" data-aos="zoom-in">
-    <h2 id="guarantee-bonus-heading">Garantia e Bônus Exclusivos</h2>
-    <div class="guarantee-bonus-grid">
-      <div class="guarantee-card" data-aos="fade-up" data-aos-delay="100">
-        <iconify-icon icon="lucide:shield"></iconify-icon>
-        <p><strong>Garantia de Satisfação 30 Dias</strong><br>Se não gostar, devolvemos seu investimento.</p>
+  <section class="benefits-section" role="region" aria-labelledby="benefits-heading" data-aos="zoom-in">
+    <h2 id="benefits-heading">Benefícios</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+        <iconify-icon icon="lucide:zap"></iconify-icon>
+        <p><strong>5 minutos por dia</strong><br>Métodos rápidos para rotinas intensas</p>
       </div>
-      <div class="bonus-card" data-aos="fade-up" data-aos-delay="200">
-        <iconify-icon icon="lucide:check-square"></iconify-icon>
-        <p><strong>Checklist Exclusivo</strong><br>Um passo a passo prático para o dia a dia.</p>
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+        <iconify-icon icon="lucide:sparkles"></iconify-icon>
+        <p><strong>Clareza mental</strong><br>Reduza a névoa e ganhe foco</p>
       </div>
-      <div class="bonus-card" data-aos="fade-up" data-aos-delay="300">
-        <iconify-icon icon="lucide:message-circle"></iconify-icon>
-        <p><strong>Grupo no Telegram</strong><br>Suporte e motivação em uma comunidade exclusiva.</p>
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+        <iconify-icon icon="lucide:heart"></iconify-icon>
+        <p><strong>Mais autoestima</strong><br>Exercícios para sua confiança</p>
+      </div>
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+        <iconify-icon icon="lucide:clock"></iconify-icon>
+        <p><strong>Produtividade real</strong><br>Adaptado ao seu ritmo</p>
       </div>
     </div>
-  </section>
+</section>
 
   <!-- Separator SVG -->
   <svg class="section-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -1272,11 +1280,6 @@
     <span class="countdown-timer" id="countdown-timer">02:00:00:00</span>
   </div>
 
-  <!-- Limited Vagas Badge -->
-  <div class="limited-vagas">Últimas 5 vagas para a turma de julho</div>
-
-  <!-- Students Counter -->
-  <div class="students-counter">+3.215 mulheres transformadas</div>
 
   <!-- Footer -->
   <footer role="contentinfo" data-aos="fade-up">
@@ -1288,7 +1291,7 @@
       <br>
       <a href="#" aria-label="Política de Privacidade"><iconify-icon icon="lucide:shield-check"></iconify-icon>Política de Privacidade</a> |
       <a href="#about-heading" aria-label="Sobre Nós"><iconify-icon icon="lucide:user-round"></iconify-icon>Sobre</a> |
-      <a href="mailto:contato@exemplo.com" aria-label="Contato"><iconify-icon icon="lucide:mail"></iconify-icon>Contato: contato@exemplo.com</a> |
+      <a href="mailto:contato@exemplo.com" aria-label="Contato"><iconify-icon icon="lucide:mail"></iconify-icon>Contato: vasconcelosdgt@gmail.com</a> |
       <a href="https://instagram.com" aria-label="Instagram"><iconify-icon icon="lucide:instagram"></iconify-icon>Instagram</a> |
       <a href="https://facebook.com" aria-label="Facebook"><iconify-icon icon="lucide:facebook"></iconify-icon>Facebook</a>
       <br>
