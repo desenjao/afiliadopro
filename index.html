@@ -726,37 +726,43 @@
       color: var(--text-white);
     }
 
-    /* Sticky CTA */
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--primary-color);
-      color: var(--text-white);
-      padding: 1rem;
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 600;
-      cursor: pointer;
-      z-index: 100;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    }
+  /* Sticky CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--primary-color);
+  color: var(--text-white);
+  padding: 1rem;
+  display: flex; /* ATENÇÃO AQUI */
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
 
-    .sticky-cta-content {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+.sticky-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-    .sticky-countdown {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-family: monospace;
-      font-size: 0.9rem;
-    }
+.sticky-right {
+  display: flex;
+  align-items: center;
+}
+
+.sticky-countdown {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
 
     /* Footer */
     .footer {
@@ -829,10 +835,7 @@
       }
 
       .sticky-cta {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        text-align: center;
+   
       }
 
       .modal-buttons {
@@ -1352,13 +1355,15 @@
   </div>
 
   <!-- Sticky CTA -->
-  <div class="sticky-cta" id="sticky-cta" onclick="openModal()">
-    <div class="sticky-cta-content">
-      <iconify-icon icon="lucide:rocket"></iconify-icon>
-      <span>Baixe o Guia Agora</span>
-    </div>
-    <div class="sticky-countdown" id="countdown-timer">02:00:00:00</div>
+ <div class="sticky-cta" id="sticky-cta" onclick="openModal()"> 
+  <div class="sticky-left">
+    <iconify-icon icon="lucide:rocket"></iconify-icon>
+    <span>Baixe o Guia Agora</span>
   </div>
+  <div class="sticky-right">
+    <span class="sticky-countdown" id="countdown-timer">01:23:59:55</span>
+  </div>
+</div>
 
   <!-- Footer -->
   <footer class="footer" role="contentinfo" data-aos="fade-up">
