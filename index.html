@@ -766,63 +766,71 @@
 
     /* Footer */
     .footer {
-      background:var(--text-white) ;
-      color: var(--primary-color);
-      padding: 3rem 1rem 2rem;
-      text-align: center;
-    }
+  background: var(--bg-white);
+  color: var(--text-dark);
+  padding: 3rem 1rem;
+  text-align: center;
+}
 
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-    .footer-text {
-      margin-bottom: 1rem;
-      opacity: 0.9;
-      line-height: 1.8;
-      color: var(--primary-color);
-    }
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  opacity: 0.8;
+  margin: 0;
+}
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
 
-    .footer-link {
-      color: var(--primary-color);
-      text-decoration: none;
-      opacity: 0.9;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+.footer-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
 
-    .footer-link:hover {
-      opacity: 1;
-    }
+.footer-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
 
-    .footer-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 600;
-      margin: 1rem 0;
-    }
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-light);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
 
     /* Responsive Design */
     @media (max-width: 768px) {
       .section {
         padding: 3rem 1rem;
       }
-
+     .footer {
+        padding: 2rem 1rem;
+     }
       .form-card {
         padding: 2rem 1.5rem;
       }
@@ -834,9 +842,6 @@
         gap: 1.5rem;
       }
 
-      .sticky-cta {
-   
-      }
 
       .modal-buttons {
         flex-direction: column;
@@ -994,13 +999,13 @@
   <section class="hero-section " role="banner" id="hero-section" data-aos="fade-up">
     
     <div class="hero-content">
-      <h1 class="hero-title">Transforme sua rotina com hábitos simples e eficientes.</h1>
+      <h1 class="hero-title" style="color:#1a1a1a">Transforme sua rotina com hábitos simples e eficientes.</h1>
       <p class="hero-subtitle">Descubra práticas simples que cabem na sua rotina e transformam seu dia a dia</p>
       <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
         <iconify-icon icon="lucide:download"></iconify-icon>
         Baixar Guia Agora
       </button>
-      <span class="delivery-note">✨ Envio imediato no seu e-mail</span>
+      <span class="delivery-note" style="color:#1a1a1a">✨ Envio imediato no seu e-mail</span>
     </div>
   </section>
 
@@ -1069,14 +1074,19 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about-section section" role="region" aria-labelledby="about-heading" data-aos="fade-up">
-    <div class="about-content">
-      <h2 class="section-title" id="about-heading">Sobre Nossa Metodologia</h2>
-      <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p class="about-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-  </section>
+<!-- About Section -->
+<section class="about-section section" role="region" aria-labelledby="about-heading" data-aos="fade-up">
+  <div class="about-content">
+    <h2 class="section-title" id="about-heading">Sobre Nossa Metodologia</h2>
+    <p class="about-text">
+      A nossa metodologia foi criada para mulheres que vivem no modo acelerado, mas não querem mais abrir mão de si mesmas. Ela nasceu da junção entre neurociência, coaching de hábitos e estratégias de bem-estar que realmente funcionam mesmo em dias caóticos.
+    </p>
+    <p class="about-text">
+      Aqui, você não vai encontrar promessas milagrosas. Vai encontrar práticas simples, com base em repetição intencional e progresso leve. São 21 dias com foco em clareza mental, autoestima e produtividade de verdade. A transformação acontece aos poucos e ela começa no primeiro passo.
+    </p>
+  </div>
+</section>
+
 
   <!-- Testimonials Section -->
   <section class="testimonials-section section" role="region" aria-labelledby="testimonials-heading" data-aos="fade-up">
@@ -1396,15 +1406,18 @@
           Facebook
         </a>
       </div>
-      
+        <div style="display: flex; justify-content: center;">
+          <div class="footer-badge" style="color:#130c00" !important>
+          Desenvolvido por <a href="https://eitadevis.vercel.app" target="_blank" style="color:#fa9f08">Eita Devis</a>
+        </div>
+      </div>
+       
       <div class="footer-badge">
         <iconify-icon icon="lucide:shield-check"></iconify-icon>
         Site Seguro
       </div>
       
-      <p class="footer-text" style="color:#fa9f08" !important>
-        Desenvolvido por <a href="https://eitadevis.vercel.app" target="_blank" style="color: rgba(255,255,255,0.9);">Eita Devis</a>
-      </p>
+     
     </div>
   </footer>
 
