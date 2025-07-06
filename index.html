@@ -52,57 +52,38 @@
     }
 
       /* Hero Section */
-      .hero-section {
-      background-image: url('img/cap.png'); 
-    background-size: cover; /* Faz a imagem preencher toda a área */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetições */
-    min-height: 100vh;
-    width: 100vw; /* Garante que ocupe toda a largura da tela */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 2rem;
-    position: relative;
-      }
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-      }
+ .hero-section {
+  background-image: url('img/meme.jpeg');
+  background-size: contain; /* Mostrar imagem completa */
+  background-position: top center; /* Mostrar o topo da imagem (onde está o texto) */
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-color);
+  padding: 2rem;
+  position: relative;
+}
 
-      .hero-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        
-        z-index: 1;
-      }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-    
+/* Esconde o texto no desktop */
+@media (min-width: 768px) {
+  .hero-content {
+   color: white;
+  }
 
-      .hero-title {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 600;
-        line-height: 1.2;
-        margin-bottom: 1.5rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
 
-      .hero-subtitle {
-        font-size: clamp(1.1rem, 3vw, 1.3rem);
-        margin-bottom: 2.5rem;
-        opacity: 0.95;
-        font-weight: 300;
-      }
+}
 
     .cta-button {
       background: var(--primary-color);
@@ -1007,9 +988,10 @@
 
 <body>
   <!-- Hero Section -->
-  <section class="hero-section" role="banner" id="hero-section" data-aos="fade-up">
+  <section class="hero-section " role="banner" id="hero-section" data-aos="fade-up">
+    
     <div class="hero-content">
-      <h1 class="hero-title">Você merece dias mais produtivos e leves. Que tal começar agora?</h1>
+      <h1 class="hero-title">Transforme sua rotina com hábitos simples e eficientes.</h1>
       <p class="hero-subtitle">Descubra práticas simples que cabem na sua rotina e transformam seu dia a dia</p>
       <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
         <iconify-icon icon="lucide:download"></iconify-icon>
@@ -1373,7 +1355,7 @@
   <div class="sticky-cta" id="sticky-cta" onclick="openModal()">
     <div class="sticky-cta-content">
       <iconify-icon icon="lucide:rocket"></iconify-icon>
-      <span>Baixe o Guia de 21 Dias Agora</span>
+      <span>Baixe o Guia Agora</span>
     </div>
     <div class="sticky-countdown" id="countdown-timer">02:00:00:00</div>
   </div>
