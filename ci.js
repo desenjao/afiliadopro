@@ -1,17 +1,18 @@
 
-  window.addEventListener("load", function () {
+  window.addEventListener("DOMContentLoaded", function () {
     const image = document.getElementById("main-image");
     const loader = document.getElementById("image-loader");
 
-    image.onload = function () {
-      loader.style.display = "none";
-      image.style.opacity = "1";
-    };
+    // Força carregamento (se quiser garantir que a imagem já esteja carregando antes da transição)
+    const preload = new Image();
+    preload.src = image.src;
 
-    // Força load caso o cache já tenha carregado a imagem
-    if (image.complete) {
+    // Aguarda 3 segundos
+    setTimeout(() => {
       loader.style.display = "none";
       image.style.opacity = "1";
-    }
+    }, 1000);
   });
+
+
 

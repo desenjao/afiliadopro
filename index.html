@@ -1261,17 +1261,27 @@ body {
 </header>
 
 <!-- Bloco de Destaque Principal (CTA Inicial) -->
-<section class="highlight-section" role="region" aria-labelledby="highlight-heading"  data-aos="fade-up" style="width: 100vw; height: 100vh;">
+<section class="highlight-section" role="region" aria-labelledby="highlight-heading">
   <div class="highlight-content">
-    <img src="img/elson-home.webp" alt="21 dias para cuidar de você" class="highlight-image active" style="opacity: 1; display: block; transition: opacity 0.5s ease;" onclick="changeImage()">
-    <img src="img/file_000000003a8c61f9a2b75fe4a033ce4b.webp" alt="21 dias para cuidar de você" class="highlight-image" style="opacity: 0; display: none; transition: opacity 0.5s ease;" onclick="changeImage()">
-    <button class="cta-button" aria-label="Baixar Guia Agora" onclick="scrollToForm()">
+    <!-- Loader -->
+    <div class="image-loader" id="image-loader"></div>
+
+    <!-- Imagem escondida no início -->
+    <img
+      src="img/elson-home.webp"
+      alt="21 dias para cuidar de você"
+      id="main-image"
+      class="highlight-image"
+    >
+
+    <button class="cta-button" onclick="scrollToForm()">
       <iconify-icon icon="lucide:download"></iconify-icon>
       Baixar Guia Agora
     </button>
     <span class="delivery-note">✨ Envio imediato no seu e-mail</span>
   </div>
 </section>
+
 
 
 
