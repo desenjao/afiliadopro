@@ -1,0 +1,27 @@
+.highlight-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.8s ease-in-out;
+  display: block;
+}
+
+.image-loader {
+  width: 64px;
+  height: 64px;
+  border: 6px solid #ccc;
+  border-top: 6px solid #fa9f08;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
